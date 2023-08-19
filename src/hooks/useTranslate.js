@@ -13,9 +13,7 @@ const useTranslate = () => {
     }, [input])
 
     const env = process.env.NEXT_PUBLIC_ENVIRONMENT;
-    const local = process.env.NEXT_PUBLIC_LOCAL;
-    const prod = process.env.NEXT_PUBLIC_PROD;
-    const endpoint = env === 'local' ? local : prod;
+    const endpoint = env === 'local' ? 'http://localhost:3001/api/translate' : 'https://afghan-translator-api.onrender.com/api/translate';
 
     const translate = (input, inputLanguage) => {
         fetch(endpoint, {
