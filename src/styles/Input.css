@@ -1,0 +1,49 @@
+.Input {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-textarea {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 24vh;
+    padding-top: 16px;
+    padding-left: 16px;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 16px;
+    word-break: break-all;
+    font-size: 16px;
+    resize: none;
+}
+
+.right {
+    text-align: right;
+    padding-right: 16px;;
+    padding-left: 0;
+}
+
+.translate-button {
+    height: 50px;
+    width: 140px;
+    border: none;
+    border-radius: 10px;
+    background: #504ED8;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.reset {
+    visibility: hidden;
+    color: black;
+    padding: 16px;
+}
+
+.show {
+    visibility: visible;
+}
