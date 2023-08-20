@@ -1,0 +1,7 @@
+{
+  "name": "afghan-translator-next",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}
