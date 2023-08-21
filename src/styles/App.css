@@ -7,3 +7,19 @@
   align-items: center;
   justify-content: center;
 }
+
+.ContactForm {
+  background-color: #504ED8;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.ContactForm input, textarea {
+  height: 36px;
+  width: 60vw;
+}
