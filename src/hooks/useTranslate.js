@@ -18,7 +18,7 @@ const useTranslate = () => {
         if (env === 'local') setEndpoint('http://localhost:3001/api/translate')
         else if (env === 'dev') setEndpoint('https://afghan-translator-api-dev.onrender.com/api/translate')
         else setEndpoint('https://afghan-translator-api.onrender.com/api/translate')
-    }, [])
+    }, [env])
     
     const translate = (input, inputLanguage) => {
         fetch(endpoint, {
