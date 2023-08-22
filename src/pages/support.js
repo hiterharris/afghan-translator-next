@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import backIcon from "../assets/icons/back.png";
 import Image from "next/image";
+import apiConfig from '@/config/apiConfig';
 
 const ContactForm = () => {
+  const { endpoint } = apiConfig();
   const router = useRouter();
   const [status, setStatus] = useState("Submit");
 
@@ -16,7 +18,7 @@ const ContactForm = () => {
       email: email.value,
       message: message.value,
     };
-    let response = await fetch("http://localhost:3001/api/support", {
+    let response = await fetch(`${endpoint}/support`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
