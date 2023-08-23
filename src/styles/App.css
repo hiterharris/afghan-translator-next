@@ -78,9 +78,28 @@ textarea {
 }
 
 .PrivacyPolicy {
-  padding: 16px;
+  font-family: Arial, sans-serif;
+  margin: 20px;
 }
 
 .PrivacyPolicy p {
   color: grey;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.PrivacyPolicy h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.PrivacyPolicy h3 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+.PrivacyPolicy strong {
+  font-weight: bold;
 }
