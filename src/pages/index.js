@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head'
 import { TranslateText } from '../components';
 import { useRouter } from "next/router";
-
+import Script from 'next/script';
 
 export default function Home() {
   const router = useRouter();
@@ -14,7 +14,17 @@ export default function Home() {
         <meta name="description" content="Dari-English Translator App" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+
       </Head>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-RBF2SG2K38" />
+        <Script>
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js', new Date());
+
+          gtag('config', 'G-RBF2SG2K38')
+          `}
+        </Script>
       <div className="App">
         <TranslateText />
         {/* <p className="support-button" onClick={() => router.push('/support')}>Contact & Support</p> */}
