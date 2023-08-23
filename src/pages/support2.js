@@ -1,5 +1,3 @@
-import Reacts from 'react';
-
 const Support2 = () => {
     return (
         <form name="contact" netlify>
