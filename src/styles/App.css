@@ -76,3 +76,11 @@ textarea {
   top: 64px;
   left: 32px;
 }
+
+.PrivacyPolicy {
+  padding: 16px;
+}
+
+.PrivacyPolicy p {
+  color: grey;
+}

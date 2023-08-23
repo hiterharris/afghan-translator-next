@@ -28,7 +28,7 @@ const ContactForm = () => {
     setStatus("Submit");
     let result = await response.json();
     alert(result.status);
-    router.reload()
+    router.pathname('/')
   };
 
   return (
