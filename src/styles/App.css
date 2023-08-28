@@ -77,6 +77,8 @@ textarea {
   left: 32px;
 }
 
+
+/* Privacy Policy */
 .PrivacyPolicy {
   font-family: Arial, sans-serif;
   margin: 20px;
@@ -99,7 +101,23 @@ textarea {
   margin-bottom: 10px;
 }
 
-
 .PrivacyPolicy strong {
   font-weight: bold;
+}
+
+
+/* Translate Image */
+.upload-image {
+  text-align: center;
+}
+.image-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 48px;
+}
+
+.html {
+  text-align: right;
 }

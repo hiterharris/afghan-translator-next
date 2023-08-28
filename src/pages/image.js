@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { createWorker } from "tesseract.js";
+import useConvertImage from '../hooks/useConvertImage';
 
 function TranslateImage() {
-  const [ocr, setOcr] = useState("");
+  const { translate, response } = useConvertImage();
   const [imageData, setImageData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   function handleImageChange(e) {
+    setLoading(true);
     const file = e.target.files[0];
-    console.log(file)
 
     if (!file) return;
     const reader = new FileReader();
@@ -24,21 +26,24 @@ function TranslateImage() {
       const worker = await createWorker({
         logger: m => console.log(m)
       });
-  
+
       (async () => {
         await worker.loadLanguage('eng');
         await worker.initialize('eng');
         const { data: { text } } = await worker.recognize(imageData);
-        console.log(text);
-        setOcr(text);
-        await worker.terminate();
+        await worker.terminate()
+        await translate(text)
       })();
     })();
   }, [imageData]);
 
+  useEffect(() => {
+    setLoading(false)
+  }, [response]);
+
   return (
     <div className="TranslateImage">
-      <div>
+      <div className="upload-image">
         <p>Choose an Image</p>
         <input
           type="file"
@@ -48,9 +53,9 @@ function TranslateImage() {
           accept="image/*"
         />
       </div>
-      <div className="display-flex">
-        <img src={imageData} alt="" srcSet="" />
-        <p style={{ margin: '5% 15%', textAlign: 'center'}}>{ocr}</p>
+      <div className="image-text">
+        <img src={imageData} alt="" srcSet="" width={240} />
+        {loading ? <p>Loading...</p> : <div className="html" dangerouslySetInnerHTML={{ __html: response }} />}
       </div>
     </div>
   );
