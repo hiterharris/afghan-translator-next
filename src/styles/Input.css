@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 32px;
 }
 
 .input-textarea {
@@ -16,12 +17,17 @@
     border-radius: 20px;
     border: none;
     margin-bottom: 16px;
-    word-break: break-all;
+    word-break: normal;
     font-size: 16px;
     resize: none;
 }
 
+.right::placeholder {
+    font-size: 16px;
+}
+
 .right {
+    font-size: 16px;
     text-align: right;
     padding-right: 16px;;
     padding-left: 0;

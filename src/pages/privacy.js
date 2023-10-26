@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
 
             <h2>1. Introduction</h2>
 
-            <p>Welcome to Afghan Translator, an English to Dari translator app developed by Hiter Harris Development. This Privacy Policy outlines how we collect, use, disclose, and safeguard your personal information when you use our App. By downloading and using Afghan Translator, you agree to the practices described in this Privacy Policy.</p>
+            <p>Welcome to Afghan Translator, an English to Dari translator app developed by H4 Digital. This Privacy Policy outlines how we collect, use, disclose, and safeguard your personal information when you use our App. By downloading and using Afghan Translator, you agree to the practices described in this Privacy Policy.</p>
 
             <h2>2. Information We Collect</h2>
 
@@ -47,7 +47,7 @@ const PrivacyPolicy = () => {
 
             <h2>9. Contact Us</h2>
 
-            <p>If you have any questions or concerns about this Privacy Policy, please contact us at hiterharrisdev@gmail.com.</p>
+            <p>If you have any questions or concerns about this Privacy Policy, please contact us at h4digital.io.</p>
 
             <p>By using Afghan Translator, you acknowledge that you have read and understood this Privacy Policy and agree to its terms and conditions.</p>
         </div>
