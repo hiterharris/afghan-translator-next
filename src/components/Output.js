@@ -12,7 +12,7 @@ const Output = ({ response, loading, inputLanguage }) => {
     <div className='Output'>
       <p className='output-text'>{!response && loading ? 'Translating...' : response[0]}</p>
       <p className='output-text-dari'>{response[1]}</p>
-      {response &&
+      {response && inputLanguage === 'Dari' &&
         <Image
           src={speech}
           alt='speaker icon'
