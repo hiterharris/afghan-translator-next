@@ -27,7 +27,7 @@ export default function Home() {
         </Script>
       <div className="App">
         <TranslateText />
-        {/* <p className="support-button" onClick={() => router.push('/support')}>Contact & Support</p> */}
+        <p className="support-button" onClick={() => router.push('/support')}>Contact & Support</p>
       </div>
     </>
   )
