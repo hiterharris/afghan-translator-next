@@ -33,7 +33,7 @@ const ContactForm = () => {
 
   return (
     <div className="ContactForm">
-      <Image className="back-button" src={backIcon} alt="back" width={36} height={36} onClick={() => router.back()} />
+      <Image className="back-button" src={backIcon} alt="back" width={36} height={36} onClick={() => router.push('/')} />
       <form onSubmit={handleSubmit}>
         <div className="form-heading">
           <h2>Contact & Support</h2>
