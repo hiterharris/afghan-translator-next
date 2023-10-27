@@ -9,8 +9,7 @@
 }
 
 .support-button {
-  position: absolute;
-  bottom: 32px;
+  position: relative;
   text-decoration: underline;
   font-size: 12px;
 }
