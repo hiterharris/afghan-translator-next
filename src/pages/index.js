@@ -1,12 +1,9 @@
 import React from 'react';
 import Head from 'next/head'
-import { TranslateText } from '../components';
-import { useRouter } from "next/router";
+import { TranslateText, Footer } from '../components';
 import Script from 'next/script';
 
 export default function Home() {
-  const router = useRouter();
-
   return (
     <>
       <Head>
@@ -27,7 +24,7 @@ export default function Home() {
         </Script>
       <div className="App">
         <TranslateText />
-        <p className="support-button" onClick={() => router.push('/support')}>Contact & Support</p>
+        <Footer />
       </div>
     </>
   )

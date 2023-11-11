@@ -6,12 +6,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.support-button {
-  position: relative;
-  text-decoration: underline;
-  font-size: 12px;
+  padding-top: 32px;
 }
 
 .ContactForm {

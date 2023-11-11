@@ -1,0 +1,8 @@
+.Footer {
+    width: 90%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    text-decoration: underline;
+    font-size: 12px;
+  }
