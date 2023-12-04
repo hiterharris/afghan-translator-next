@@ -2,8 +2,6 @@
 
 Afghan Translator is a user-friendly Dari-English Translator app, designed to bridge language gaps effortlessly. Tailored for both native Afghan speakers seeking English translations and English learners eager to master Dari, our app offers a seamless and intuitive experience.
 
-Built for web using React and iOS using [CapacitorJS](https://capacitorjs.com/)
-
 ## Getting Started
 
 - Clone/Download the repo: `git clone https://github.com/hiterharris/afghan-translator-next`
