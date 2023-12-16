@@ -28,8 +28,7 @@ const useTranslate = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                const split = data.split('%%')
-                setResponse(split)
+                setResponse(JSON?.parse(data))
             })
             .catch((err) => {
                 console.log(err.message);
