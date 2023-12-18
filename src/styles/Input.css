@@ -1,10 +1,10 @@
 .Input {
-    font-size: 18px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 32px;
+    font-size: 18px;
 }
 
 .input-textarea {
@@ -13,13 +13,15 @@
     width: 80vw;
     height: 24vh;
     padding-top: 16px;
-    padding-left: 16px;
     border-radius: 20px;
     border: none;
     margin-bottom: 16px;
     word-break: normal;
     font-size: 16px;
     resize: none;
+    text-wrap: wrap;
+    padding: 16px;
+    line-height: 24px;
 }
 
 .right::placeholder {
@@ -29,8 +31,6 @@
 .right {
     font-size: 16px;
     text-align: right;
-    padding-right: 16px;;
-    padding-left: 0;
 }
 
 .translate-button {
@@ -42,6 +42,7 @@
     color: white;
     font-weight: 500;
     font-size: 18px;
+    padding: 12px;
 }
 
 .reset {

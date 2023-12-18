@@ -24,12 +24,6 @@ const Languages = ({ setInputLanguage, switched, setSwitched }) => {
       {languages.map((item, index) => {
         return (
           <div key={item?.sortOrder || index} className='language input-language'>
-            {/* <img 
-              src={item?.icon}
-              alt='icon' 
-              className={!item.text ? 'switch-button' : 'language-icon'}
-              onClick={switchLanguages} 
-            /> */}
             <Image
               src={item?.icon}
               alt="language icon"
