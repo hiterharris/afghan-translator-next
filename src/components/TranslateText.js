@@ -22,10 +22,17 @@ const TranslateText = () => {
             <Languages 
               setInputLanguage={setInputLanguage} 
               switched={switched} 
-              setSwitched={setSwitched} 
+              setSwitched={setSwitched}
             />
             <Output response={response} loading={loading} inputLanguage={inputLanguage} />
-            <Input input={input} setInput={setInput} translate={translate} setLoading={setLoading} inputLanguage={inputLanguage} switched={switched} />
+            <Input
+              input={input}
+              setInput={setInput} 
+              translate={translate} 
+              setLoading={setLoading} 
+              inputLanguage={inputLanguage} 
+              switched={switched}
+            />
         </div>
     );
 }
