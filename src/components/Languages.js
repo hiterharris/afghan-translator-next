@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { languageList } from '../constants/languageList';
 import Image from 'next/image';
 
-const Languages = ({ setInputLanguage, switched, setSwitched }) => {
+const Languages = ({ setInputLanguage, switched, setSwitched, reset }) => {
   const [languages, setLanguages] = useState(languageList);
 
   useEffect(() => {
@@ -17,6 +17,7 @@ const Languages = ({ setInputLanguage, switched, setSwitched }) => {
 
   const switchLanguages = () => {
     setSwitched(!switched);
+    reset();
   }
   
   return (

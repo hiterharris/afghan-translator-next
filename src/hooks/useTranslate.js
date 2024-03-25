@@ -35,6 +35,10 @@ const useTranslate = () => {
             });
     }
 
+    const reset = () => {
+        setInput('');
+    }
+
     return { 
         inputLanguage, 
         setInputLanguage, 
@@ -47,6 +51,7 @@ const useTranslate = () => {
         setResponse, 
         switched, 
         setSwitched,
+        reset
     }
 }
 

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 const env = process.env.NEXT_PUBLIC_ENVIRONMENT;
 const local = process.env.NEXT_PUBLIC_ENDPOINT_LOCAL;
 const dev = process.env.NEXT_PUBLIC_ENDPOINT_DEV;
-const prod = process.env.NEXT_PUBLIC_ENDPOINT_PROD;
+// const prod = process.env.NEXT_PUBLIC_ENDPOINT_PROD;  *TODO: revert before deployment*
 
 const apiConfig = () => {
     const [endpoint, setEndpoint] = useState('');
@@ -11,7 +11,7 @@ const apiConfig = () => {
     useEffect(() => {
         if (env === 'local') setEndpoint(local)
         else if (env === 'dev') setEndpoint(dev)
-        else setEndpoint(prod)
+        else setEndpoint(prod || dev)
     }, [env])
 
     return { endpoint }
