@@ -10,14 +10,14 @@ const Output = ({ response, loading, inputLanguage }) => {
 
   return (
     <div className='Output'>
-      <p className='output-text-dari'>{response?.arabic}</p>
+      {response?.arabic && <p className='output-text-dari'>{response?.arabic}</p>}
       <p className='output-text'>{!response && loading ? 'Translating...' : response?.latin}</p>
       {response && inputLanguage === 'Dari' &&
         <Image
           src={speech}
           alt='speaker icon'
           className='speech'
-          onClick={() => speak(response)}
+          onClick={() => speak(response?.latin)}
         />
       }
     </div>
