@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "static": "next build && next export",
-    "sync": "next build && next export && npx cap sync && npx cap open ios",
+    "sync:ios": "next build && next export && npx cap sync && npx cap open ios",
     "ionic:build": "npm run build",
     "ionic:serve": "npm run start"
   },
