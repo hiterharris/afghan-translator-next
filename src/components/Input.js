@@ -2,7 +2,7 @@ import React from 'react';
 import { TranslateButton } from './index';
 import { languageConfig } from '../constants/languageConfig';
 
-const Input = ({ input, setInput, translate, setLoading, inputLanguage, switched }) => {
+const Input = ({ input, setInput, translate, setLoading, inputLanguage, switched, reset }) => {
   const inputConfig = languageConfig['default'];
 
   const handleChange = (e) => {
@@ -14,12 +14,12 @@ const Input = ({ input, setInput, translate, setLoading, inputLanguage, switched
     setLoading(true);
   }
 
-  const reset = () => window !== undefined && window.location.reload(false);
   return (
     <div className='Input'>
       <textarea
         className={`input-textarea ${switched && 'right'}`}
         placeholder={inputConfig.placeholder}
+        value={input}
         onChange={handleChange}
       />
       <TranslateButton 
