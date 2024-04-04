@@ -8,13 +8,14 @@
     "start": "next start",
     "lint": "next lint",
     "static": "next build && next export",
-    "ios": "next build && next export && npx cap sync && npx cap open ios",
+    "sync": "next build && next export && npx cap sync && npx cap open ios",
     "ionic:build": "npm run build",
     "ionic:serve": "npm run start"
   },
   "dependencies": {
     "@capacitor/core": "^5.2.3",
     "@capacitor/ios": "^5.2.3",
+    "capacitor-rate-app": "^4.0.3",
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
