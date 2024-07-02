@@ -1,20 +1,14 @@
-import { useState, useEffect } from 'react';
-
 const env = process.env.NEXT_PUBLIC_ENVIRONMENT;
 const local = process.env.NEXT_PUBLIC_ENDPOINT_LOCAL;
 const dev = process.env.NEXT_PUBLIC_ENDPOINT_DEV;
 const prod = process.env.NEXT_PUBLIC_ENDPOINT_PROD;
 
 const apiConfig = () => {
-    const [endpoint, setEndpoint] = useState('');
-
-    useEffect(() => {
-        if (env === 'local') setEndpoint(local)
-        else if (env === 'dev') setEndpoint(dev)
-        else setEndpoint(prod || dev)
-    }, [env])
-
-    return { endpoint }
+    let endpoint = '';
+    if (env === 'local') endpoint = local;
+    else if (env === 'dev') endpoint = dev;
+    else endpoint = prod;
+    return { endpoint };
 }
 
 export default apiConfig;
