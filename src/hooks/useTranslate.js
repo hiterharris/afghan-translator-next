@@ -17,7 +17,7 @@ const useTranslate = () => {
 
     useEffect(() => {
         setLoading(false);
-        detectLanguage(input);
+        detectLanguage(input, setLanguageDetected);
         input?.length === 0  && setResponse('');
     }, [input]);
 

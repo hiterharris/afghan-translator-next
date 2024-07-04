@@ -1,4 +1,4 @@
-const detectLanguage = async (input) => {
+const detectLanguage = async (input, setLanguageDetected) => {
     const url = 'https://community-language-detection.p.rapidapi.com/detect';
     const options = {
         method: 'POST',
