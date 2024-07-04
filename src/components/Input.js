@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { TranslateButton } from './index';
 import { languageConfig } from '../constants/languageConfig';
 
 const Input = ({
   input,
   setInput,
-  translate,
-  setLoading,
   inputLanguage,
   switched,
-  reset
 }) => {
   const [count, setCount] = useState(0);
   const inputConfig = languageConfig[inputLanguage];
@@ -23,10 +19,6 @@ const Input = ({
     input?.length === 0 && setCount(0);
   }, [input]);
 
-  const handleTranslate = () => {
-    translate(input, inputLanguage);
-  }
-
   return (
     <div className='Input'>
       <textarea
@@ -37,13 +29,6 @@ const Input = ({
         onChange={handleChange}
       />
       <div className='character-count'>{count}/120</div>
-      <TranslateButton
-        text={inputConfig.translate}
-        input={input}
-        handleTranslate={handleTranslate}
-        resetText={inputConfig.reset}
-        reset={reset}
-      />
     </div>
   );
 }
