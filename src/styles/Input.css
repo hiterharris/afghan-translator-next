@@ -54,3 +54,11 @@
 .show {
     visibility: visible;
 }
+
+.character-count {
+    font-size: 16px;
+    color: grey;
+    position: absolute;
+    margin-top: 12%;
+    right: 48px;
+}

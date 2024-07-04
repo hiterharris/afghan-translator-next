@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
@@ -16,8 +16,10 @@ const TranslateText = () => {
 		response,
 		switched,
 		setSwitched,
-    	reset
+    	reset,
+		inputConfig
 		} = useTranslate();
+
 	return (
 		<div className="TranslateText">
 			<Languages 
@@ -32,7 +34,8 @@ const TranslateText = () => {
 				setInput={setInput} 
 				translate={translate} 
 				setLoading={setLoading} 
-				inputLanguage={inputLanguage} 
+				inputLanguage={inputLanguage}
+				inputConfig={inputConfig}
 				switched={switched}
         		reset={reset}
 			/>

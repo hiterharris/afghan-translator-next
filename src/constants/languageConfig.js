@@ -2,16 +2,22 @@ export const languageConfig = {
   'default' : {
     placeholder: 'What would you like to translate?',
     reset: 'Reset',
-    translate: 'Translate'
+    translate: 'Translate',
+    alertTitle: 'Input Warning',
+    alertMessage: 'Please enter text'
   },
   'English': {
-      placeholder: 'Enter English text...',
+      placeholder: 'What would you like to translate?',
       reset: 'Reset',
-      translate: 'Translate'
+      translate: 'Translate',
+      alertTitle: 'Input Warning',
+      alertMessage: 'Please enter text in English.'
     },
     'Dari': {
-      placeholder: 'متن دری وارد کنید',
-      reset: 'بازگشت',
-      translate: 'ترجمه'
-    }
+      placeholder: 'چه میخواهید ترجمه کنید؟' + '\n' + 'Che mikhahi tarjuma koni?',
+      reset: 'Reset',
+      translate: 'Translate',
+      alertTitle: 'پیغام هوشدار',
+      alertMessage: 'لطفاً متن را برای ترجمه وارد کنید',
   }
+}
