@@ -26,7 +26,8 @@
     "primereact": "^10.7.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sharp": "^0.32.6"
+    "sharp": "^0.32.6",
+    "cross-env": "^7.0.3"
   },
   "devDependencies": {
     "@capacitor/cli": "^5.2.3",
