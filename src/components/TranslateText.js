@@ -43,7 +43,7 @@ const TranslateText = () => {
 				switched={switched}
 				reset={reset}
 			/>
-			<Output response={response} loading={loading} inputLanguage={inputLanguage} />
+			<Output response={response} inputLanguage={inputLanguage} />
 			<Button
 				className='translate-button'
 				label="Translate"

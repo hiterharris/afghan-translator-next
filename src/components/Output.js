@@ -2,7 +2,7 @@ import React from 'react';
 import speech from '../assets/icons/speech.png';
 import Image from 'next/image';
 
-const Output = ({ response, loading, inputLanguage }) => {
+const Output = ({ response, inputLanguage }) => {
   const speak = async (value) => {
     let voice = new SpeechSynthesisUtterance(value);
     await speechSynthesis.speak(voice);
@@ -11,7 +11,7 @@ const Output = ({ response, loading, inputLanguage }) => {
   return (
     <div className='Output'>
       {response?.arabic && <p className='output-text-dari'>{response?.arabic}</p>}
-      <p className='output-text'>{!response && loading ? 'Translating...' : response?.latin}</p>
+      <p className='output-text'>{response?.latin}</p>
       {response && inputLanguage === 'Dari' &&
         <Image
           src={speech}

@@ -8,12 +8,6 @@
   justify-content: center;
 }
 
-.support-button {
-  position: relative;
-  text-decoration: underline;
-  font-size: 12px;
-}
-
 .ContactForm {
   background-color: #504ED8;
   color: white;
