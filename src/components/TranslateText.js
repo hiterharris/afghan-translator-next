@@ -3,7 +3,7 @@ import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
 import useTranslate from '../hooks/useTranslate';
-import { TranslateButton } from './index';
+import { Button } from 'primereact/button';
 
 const TranslateText = () => {
 	const {
@@ -23,7 +23,7 @@ const TranslateText = () => {
 
 	const handleTranslate = () => {
 		translate(input, inputLanguage);
-	  }
+	}
 
 	return (
 		<div className="TranslateText">
@@ -44,13 +44,14 @@ const TranslateText = () => {
 				reset={reset}
 			/>
 			<Output response={response} loading={loading} inputLanguage={inputLanguage} />
-			<TranslateButton
-				text={inputConfig.translate}
-				input={input}
-				handleTranslate={handleTranslate}
-				resetText={inputConfig.reset}
-				reset={reset}
+			<Button
+				className='translate-button'
+				label="Translate"
+				icon="pi pi-check"
+				loading={loading}
+				onClick={handleTranslate}
 			/>
+			<p className={`reset ${input && 'show'}`} onClick={reset}>{inputConfig.reset}</p>
 		</div>
 	);
 }

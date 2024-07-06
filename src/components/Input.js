@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { InputTextarea } from 'primereact/inputtextarea';
 import { languageConfig } from '../constants/languageConfig';
 
 const Input = ({
@@ -21,13 +22,16 @@ const Input = ({
 
   return (
     <div className='Input'>
-      <textarea
-        className={`input-textarea ${switched && 'right'}`}
-        placeholder={inputConfig.placeholder}
-        value={input}
-        maxLength={120}
-        onChange={handleChange}
-      />
+      <span className={`p-float-label input-textarea ${switched && 'right'}`}>
+        <InputTextarea
+          value={input}
+          onChange={handleChange}
+          placeholder={inputConfig.placeholder}
+          maxLength={120}
+          className={`${switched && 'right'}`}
+        />
+        <label>{!switched ? inputLanguage : `${inputLanguage} ` }</label>
+      </span>
       <div className='character-count'>{count}/120</div>
     </div>
   );
