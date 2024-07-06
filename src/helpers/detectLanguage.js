@@ -1,25 +1,17 @@
-const detectLanguage = async (input, setLanguageDetected) => {
-    const url = 'https://community-language-detection.p.rapidapi.com/detect';
-    const options = {
-        method: 'POST',
-        headers: {
-            'x-rapidapi-key': process.env.NEXT_PUBLIC_RAPID_API_KEY,
-            'x-rapidapi-host': 'community-language-detection.p.rapidapi.com',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ "q": [input] })
-    };
+import DetectLanguage from 'detectlanguage';
 
+const detectLanguage = (input, setLanguageDetected) => {
+    const initDetectLanguage = new DetectLanguage(process.env.NEXT_PUBLIC_LANGUAGE_DETECT_API_KEY);
+    
     try {
-        const response = await fetch(url, options);
-        const json = await response.json();
-        const detections = json?.data?.detections[0];
-        const result = detections?.find(item => item.language);
-        const language = result?.language;
-        setLanguageDetected(language);
+        initDetectLanguage.detect(input).then(function(response) {
+            const result = response[0]?.language;
+            setLanguageDetected(result);
+        });
     } catch (error) {
         console.error(error);
     }
-};
+}
 
 export default detectLanguage;
+

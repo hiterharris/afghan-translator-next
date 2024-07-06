@@ -13,9 +13,8 @@ const useTranslate = () => {
     const [switched, setSwitched] = useState(false);
     const [languageDetected, setLanguageDetected] = useState();
     const inputConfig = languageConfig[inputLanguage];
-
     useEffect(() => {
-        setLoading(false);
+        setLoading(false)
         detectLanguage(input, setLanguageDetected);
         input?.length === 0  && setResponse('');
     }, [input]);
@@ -32,7 +31,7 @@ const useTranslate = () => {
             await showAlert();
             return false;
         }
-                
+        
         const isEnglish = inputLanguage === 'English' && languageDetected === 'en';
         const isDari = inputLanguage === 'Dari';
 
@@ -42,6 +41,7 @@ const useTranslate = () => {
             await showAlert();
             return false
         }
+
     };
 
     const translate = async (input) => {
