@@ -16,10 +16,10 @@
     "@capacitor/core": "^5.2.3",
     "@capacitor/ios": "^5.2.3",
     "capacitor-rate-app": "^4.0.3",
-    "next": "13.4.19",
+    "next": "14.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sharp": "^0.32.5"
+    "sharp": "^0.32.6"
   },
   "devDependencies": {
     "@capacitor/cli": "^5.2.3"
