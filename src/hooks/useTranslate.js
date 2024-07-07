@@ -16,7 +16,7 @@ const useTranslate = () => {
     
     useEffect(() => {
         setLoading(false)
-        detectLanguage(input, setLanguageDetected);
+        input?.length >= 3 && detectLanguage(input, setLanguageDetected);
         input?.length === 0  && setResponse('');
     }, [input]);
 
@@ -42,7 +42,6 @@ const useTranslate = () => {
             await showAlert();
             return false
         }
-
     };
 
     const translate = async (input) => {
