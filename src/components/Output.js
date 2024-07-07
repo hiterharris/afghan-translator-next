@@ -1,6 +1,8 @@
 import React from 'react';
 import speech from '../assets/icons/speech.png';
+import copy from '../assets/icons/copy.png';
 import Image from 'next/image';
+import { writeToClipboard } from '@/helpers';
 
 const Output = ({ response, inputLanguage }) => {
   const speak = async (value) => {
@@ -13,12 +15,20 @@ const Output = ({ response, inputLanguage }) => {
       {response?.arabic && <p className='output-text-dari'>{response?.arabic}</p>}
       <p className='output-text'>{response?.latin}</p>
       {response && inputLanguage === 'Dari' &&
-        <Image
-          src={speech}
-          alt='speaker icon'
-          className='speech'
-          onClick={() => speak(response?.latin)}
-        />
+        <div>
+          <Image
+            src={speech}
+            alt='speaker icon'
+            className='speech'
+            onClick={() => speak(response?.latin)}
+          />
+          <Image
+            src={copy}
+            alt='copy icon'
+            className='speech'
+            onClick={() => writeToClipboard(response?.latin)}
+          />
+        </div>
       }
     </div>
   );
