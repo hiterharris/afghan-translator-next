@@ -10,25 +10,32 @@ const Output = ({ response, inputLanguage }) => {
     await speechSynthesis.speak(voice);
   }
 
+  const clipboard = () => {
+    let text = '';
+    response?.arabic && (text += `${response?.arabic} `)
+    response?.latin && (text += `${response?.latin}`);
+    return text;
+  }
+
   return (
     <div className='Output'>
       {response?.arabic && <p className='output-text-dari'>{response?.arabic}</p>}
       <p className='output-text'>{response?.latin}</p>
       {response && inputLanguage === 'Dari' &&
-        <div>
-          <Image
-            src={speech}
-            alt='speaker icon'
-            className='speech'
-            onClick={() => speak(response?.latin)}
-          />
-          <Image
-            src={copy}
-            alt='copy icon'
-            className='speech'
-            onClick={() => writeToClipboard(response?.latin)}
-          />
-        </div>
+        <Image
+          src={speech}
+          alt='speaker icon'
+          className='speech'
+          onClick={() => speak(response?.latin)}
+        />
+      }
+      {response &&
+        <Image
+          src={copy}
+          alt='copy icon'
+          className='speech'
+          onClick={() => writeToClipboard(clipboard())}
+        />
       }
     </div>
   );
