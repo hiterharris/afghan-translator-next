@@ -13,7 +13,7 @@
     "ionic:serve": "npm run start"
   },
   "dependencies": {
-    "@capacitor/core": "^5.2.3",
+    "@capacitor/core": "^5.7.6",
     "@capacitor/ios": "^5.2.3",
     "capacitor-rate-app": "^4.0.3",
     "next": "13.4.19",
