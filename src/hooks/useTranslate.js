@@ -13,6 +13,7 @@ const useTranslate = () => {
     const [switched, setSwitched] = useState(false);
     const [languageDetected, setLanguageDetected] = useState();
     const inputConfig = languageConfig[inputLanguage];
+    
     useEffect(() => {
         setLoading(false)
         detectLanguage(input, setLanguageDetected);
