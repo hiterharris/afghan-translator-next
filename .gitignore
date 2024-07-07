@@ -37,4 +37,4 @@ next-env.d.ts
 .netlify
 
 # start script
-./start.sh
+./run.sh
