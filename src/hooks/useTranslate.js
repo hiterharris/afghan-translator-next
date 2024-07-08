@@ -10,7 +10,7 @@ const useTranslate = () => {
     const [loading, setLoading] = useState(false);
     const [response, setResponse] = useState('');
     const [input, setInput] = useState('');
-    const [switched, setSwitched] = useState(false);
+    const [switched, setSwitched] = useState(true);
     const [languageDetected, setLanguageDetected] = useState();
     const inputConfig = languageConfig[inputLanguage];
     
