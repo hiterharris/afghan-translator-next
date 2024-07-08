@@ -30,7 +30,7 @@ const Input = ({
           maxLength={120}
           className={`${switched && 'right'}`}
         />
-        <label>{!switched ? inputLanguage : `${inputLanguage} ` }</label>
+        <label>{!switched ? inputLanguage : `دری ${inputLanguage} ` }</label>
       </span>
       <div className='character-count'>{count}/120</div>
     </div>
