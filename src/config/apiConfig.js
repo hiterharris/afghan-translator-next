@@ -1,3 +1,4 @@
+import { useEffect  } from 'react';
 import { Capacitor } from '@capacitor/core';
 
 const env = process.env.NEXT_PUBLIC_ENVIRONMENT;
@@ -7,7 +8,10 @@ const prod = process.env.NEXT_PUBLIC_ENDPOINT_PROD;
 const isCapacitorNative = Capacitor.isNativePlatform();
 
 const apiConfig = () => {
-    console.log('PLATFORM =', isCapacitorNative ? 'MOBILE' : 'WEB');
+    
+    useEffect(() => {
+        console.log('PLATFORM =', isCapacitorNative ? 'MOBILE' : 'WEB');
+    }, [])
     
     let endpoint = prod;
     if (env === 'dev') endpoint = dev;

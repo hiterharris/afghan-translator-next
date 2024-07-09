@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import speech from '../assets/icons/speech.png';
 import copy from '../assets/icons/copy.png';
+import check from '../assets/icons/check.png';
 import Image from 'next/image';
 import { writeToClipboard } from '@/helpers';
 
 const Output = ({ response, inputLanguage }) => {
+  const [isCopied, setIsCopied] = useState(false);
+
   const speak = async (value) => {
     let voice = new SpeechSynthesisUtterance(value);
     await speechSynthesis.speak(voice);
+  }
+
+  const handleCopy = () => {
+    writeToClipboard(clipboard());
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
   }
 
   const clipboard = () => {
@@ -31,10 +42,10 @@ const Output = ({ response, inputLanguage }) => {
       }
       {response &&
         <Image
-          src={copy}
+          src={isCopied ? check : copy}
           alt='copy icon'
           className='speech'
-          onClick={() => writeToClipboard(clipboard())}
+          onClick={handleCopy}
         />
       }
     </div>
