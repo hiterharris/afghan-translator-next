@@ -2,7 +2,7 @@ import React from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
-import useTranslate from '../hooks/useTranslate';
+import { useTranslate } from '../hooks';
 import { Button } from 'primereact/button';
 
 const TranslateText = () => {
