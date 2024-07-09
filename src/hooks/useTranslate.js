@@ -43,7 +43,7 @@ const useTranslate = () => {
             return false
         }
     };
-
+    
     const translate = async (input) => {
         const isValid = await validateInput(input);
         if (isValid) {
@@ -65,7 +65,7 @@ const useTranslate = () => {
             })
             .catch((err) => {
                 console.error(err.message);
-                setResponse(JSON?.parse("{ \"latin\": \"Please try again\", \"arabic\": \"\" }"));
+                setResponse(inputConfig?.errorResponse);
             })
             .finally(() => {
                 setLoading(false);
