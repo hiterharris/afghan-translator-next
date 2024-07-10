@@ -10,8 +10,6 @@
 .input-textarea {
     display: flex;
     flex-direction: column;
-    width: 80vw;
-    height: 24vh;
     padding-top: 16px;
     border-radius: 20px;
     border: none;
@@ -20,8 +18,25 @@
     font-size: 16px;
     resize: none;
     text-wrap: wrap;
-    padding: 16px;
     line-height: 24px;
+}
+
+.input-textarea textarea {
+    width: 80vw;
+    height: 20vh;
+    border-radius: 16px;
+    font-size: 16px;
+    padding: 16px;
+}
+
+.input-textarea textarea::placeholder {
+    font-size: 16px;
+}
+
+.input-textarea label {
+    margin: 8px;
+    font-size: 16px;
+    color: grey;
 }
 
 .right::placeholder {
@@ -48,9 +63,18 @@
 .reset {
     visibility: hidden;
     color: black;
-    padding: 16px;
+    padding-top: 24px;
+    font-size: 20px;
 }
 
 .show {
     visibility: visible;
+}
+
+.character-count {
+    font-size: 16px;
+    color: grey;
+    position: absolute;
+    margin-top: 36%;
+    right: 12%;
 }

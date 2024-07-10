@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
-import useTranslate from '../hooks/useTranslate';
+import { useTranslate } from '../hooks';
+import { Button } from 'primereact/button';
 
 const TranslateText = () => {
 	const {
@@ -16,26 +17,41 @@ const TranslateText = () => {
 		response,
 		switched,
 		setSwitched,
-    	reset
-		} = useTranslate();
+		reset,
+		inputConfig
+	} = useTranslate();
+
+	const handleTranslate = () => {
+		translate(input, inputLanguage);
+	}
+
 	return (
 		<div className="TranslateText">
-			<Languages 
-				setInputLanguage={setInputLanguage} 
-				switched={switched} 
+			<Languages
+				setInputLanguage={setInputLanguage}
+				switched={switched}
 				setSwitched={setSwitched}
-        		reset={reset}
+				reset={reset}
 			/>
-			<Output response={response} loading={loading} inputLanguage={inputLanguage} />
 			<Input
 				input={input}
-				setInput={setInput} 
-				translate={translate} 
-				setLoading={setLoading} 
-				inputLanguage={inputLanguage} 
+				setInput={setInput}
+				translate={translate}
+				setLoading={setLoading}
+				inputLanguage={inputLanguage}
+				inputConfig={inputConfig}
 				switched={switched}
-        		reset={reset}
+				reset={reset}
 			/>
+			<Output response={response} inputLanguage={inputLanguage} />
+			<Button
+				className='translate-button'
+				label="Translate"
+				icon="pi pi-check"
+				loading={loading}
+				onClick={handleTranslate}
+			/>
+			<p className={`reset ${input && 'show'}`} onClick={reset}>{inputConfig.reset}</p>
 		</div>
 	);
 }

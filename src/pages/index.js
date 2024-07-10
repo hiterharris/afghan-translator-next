@@ -1,12 +1,10 @@
 import React from 'react';
 import Head from 'next/head'
 import { TranslateText } from '../components';
-import { useRouter } from "next/router";
 import Script from 'next/script';
 import { RateApp } from 'capacitor-rate-app';
 
 export default function Home() {
-  const router = useRouter();
   RateApp.requestReview();
 
   return (
@@ -29,7 +27,6 @@ export default function Home() {
         </Script>
       <div className="App">
         <TranslateText />
-        <p className="support-button" onClick={() => router.push('/support')}>Contact & Support</p>
       </div>
     </>
   )
