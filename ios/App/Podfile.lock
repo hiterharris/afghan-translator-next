@@ -1,28 +1,40 @@
 PODS:
-  - Capacitor (5.2.3):
+  - Capacitor (6.1.0):
     - CapacitorCordova
-  - CapacitorCordova (5.2.3)
+  - CapacitorClipboard (6.0.0):
+    - Capacitor
+  - CapacitorCordova (6.1.0)
+  - CapacitorDialog (6.0.0):
+    - Capacitor
   - CapacitorRateApp (4.0.3):
     - Capacitor
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorClipboard (from `../../node_modules/@capacitor/clipboard`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorDialog (from `../../node_modules/@capacitor/dialog`)"
   - CapacitorRateApp (from `../../node_modules/capacitor-rate-app`)
 
 EXTERNAL SOURCES:
   Capacitor:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorClipboard:
+    :path: "../../node_modules/@capacitor/clipboard"
   CapacitorCordova:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorDialog:
+    :path: "../../node_modules/@capacitor/dialog"
   CapacitorRateApp:
     :path: "../../node_modules/capacitor-rate-app"
 
 SPEC CHECKSUMS:
-  Capacitor: 6f44cbc33839b8a4202b8eac97041fe584083417
-  CapacitorCordova: 35def3ebfdef491f0a7b652816eb873ff4b20bbf
+  Capacitor: 187bd7847b6f71467015a20200a1a071be3e5f14
+  CapacitorClipboard: 80282f684154124b9019ebf401235b70b0cf4994
+  CapacitorCordova: be703980ca797f847c3356f78fa175d21c8330c2
+  CapacitorDialog: 64aa82840ee5e9c066f9e1a49c1e186afd3f24d2
   CapacitorRateApp: 896df7ec6a237fea72d1955e0cb26394654b00db
 
-PODFILE CHECKSUM: 40d7843bdb31d4379c8193b46fa7d3660bbd6e53
+PODFILE CHECKSUM: 18317fb6966832128248aa753a54022082b8b1a5
 
 COCOAPODS: 1.14.1

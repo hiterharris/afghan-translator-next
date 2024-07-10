@@ -4,24 +4,33 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "start-local": "cross-env NEXT_PUBLIC_ENVIRONMENT=local next dev",
+    "start-dev": "cross-env NEXT_PUBLIC_ENVIRONMENT=dev next dev",
+    "start-prod": "cross-env NEXT_PUBLIC_ENVIRONMENT=prod next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "static": "next build && next export",
-    "sync:ios": "next build && next export && npx cap sync && npx cap open ios",
+    "sync:ios": "next build && npx cap sync && npx cap open ios",
     "ionic:build": "npm run build",
     "ionic:serve": "npm run start"
   },
   "dependencies": {
-    "@capacitor/core": "^5.2.3",
-    "@capacitor/ios": "^5.2.3",
+    "@capacitor/clipboard": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/dialog": "^6.0.0",
+    "@capacitor/ios": "^6.0.0",
     "capacitor-rate-app": "^4.0.3",
+    "cross-env": "^7.0.3",
+    "detectlanguage": "^2.1.0",
+    "ldrs": "^1.0.2",
     "next": "14.1.1",
+    "primereact": "^10.7.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sharp": "^0.32.6"
   },
   "devDependencies": {
-    "@capacitor/cli": "^5.2.3"
+    "@capacitor/cli": "^6.0.0",
+    "cross-env": "^7.0.3"
   }
 }
