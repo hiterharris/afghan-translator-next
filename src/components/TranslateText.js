@@ -48,7 +48,6 @@ const TranslateText = () => {
 				className='translate-button'
 				label="Translate"
 				icon="pi pi-check"
-				loading={loading}
 				onClick={handleTranslate}
 			/>
 			<p className={`reset ${input && 'show'}`} onClick={reset}>{inputConfig.reset}</p>
