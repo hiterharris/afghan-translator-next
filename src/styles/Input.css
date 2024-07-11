@@ -49,8 +49,8 @@
 }
 
 .translate-button {
-    height: 50px;
-    width: 140px;
+    height: 64px;
+    width: 175px;
     border: none;
     border-radius: 10px;
     background: #504ED8;
@@ -58,13 +58,14 @@
     font-weight: 500;
     font-size: 18px;
     padding: 12px;
+    text-align: center;
 }
 
 .reset {
     visibility: hidden;
-    color: black;
+    height: 64px;
+    width: 42px;
     padding-top: 24px;
-    font-size: 20px;
 }
 
 .show {
