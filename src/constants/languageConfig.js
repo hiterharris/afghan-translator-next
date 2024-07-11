@@ -23,7 +23,7 @@ export const languageConfig = {
     'Dari': {
       placeholder: 'چه میخواهید ترجمه کنید؟' + '\n' + 'Che mikhahi tarjuma koni?',
       reset: 'Reset',
-      translate: 'Translate',
+      translate: 'چگونه',
       alertTitle: 'پیغام هوشدار',
       alertMessage: 'لطفاً متن را برای ترجمه وارد کنید',
       errorResponse: {

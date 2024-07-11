@@ -4,8 +4,17 @@ import copy from '../assets/icons/copy.png';
 import check from '../assets/icons/check.png';
 import Image from 'next/image';
 import { writeToClipboard } from '@/helpers';
+import SyncLoader from "react-spinners/SyncLoader";
 
-const Output = ({ response, inputLanguage }) => {
+const override = {
+  display: 'block',
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)'
+};
+
+const Output = ({ response, inputLanguage, loading }) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const speak = async (value) => {
@@ -30,6 +39,12 @@ const Output = ({ response, inputLanguage }) => {
 
   return (
     <div className='Output'>
+      <SyncLoader
+        color="#504ED8"
+        loading={loading}
+        cssOverride={override}
+        aria-label="Loading Spinner"
+      />
       {response?.arabic && <p className='output-text-dari'>{response?.arabic}</p>}
       <p className='output-text'>{response?.latin}</p>
       {response && inputLanguage === 'Dari' &&
