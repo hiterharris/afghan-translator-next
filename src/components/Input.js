@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { languageConfig } from '../constants/languageConfig';
+import Image from 'next/image';
+import refresh from '../assets/icons/refresh.png';
 
 const Input = ({
   input,
   setInput,
   inputLanguage,
   switched,
+  reset
 }) => {
   const [count, setCount] = useState(0);
   const inputConfig = languageConfig[inputLanguage];
@@ -30,9 +33,15 @@ const Input = ({
           maxLength={120}
           className={`${switched && 'right'}`}
         />
-        <label>{!switched ? inputLanguage : `دری ${inputLanguage} ` }</label>
-      </span>
+        <Image
+          src={refresh}
+          alt=""
+          className={`reset ${input && 'show'}`}
+          onClick={reset}
+        />
       <div className='character-count'>{count}/120</div>
+        <label>{!switched ? inputLanguage : `دری ${inputLanguage} `}</label>
+      </span>
     </div>
   );
 }
