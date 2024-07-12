@@ -46,11 +46,10 @@ const TranslateText = () => {
 			<Output response={response} inputLanguage={inputLanguage} loading={loading} />
 			<Button
 				className='translate-button'
-				label="Translate"
+				label={inputConfig.translate}
 				icon="pi pi-check"
 				onClick={handleTranslate}
 			/>
-			<p className={`reset ${input && 'show'}`} onClick={reset}>{inputConfig.reset}</p>
 		</div>
 	);
 }
