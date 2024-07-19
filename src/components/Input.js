@@ -13,6 +13,7 @@ const Input = ({
 }) => {
   const [count, setCount] = useState(0);
   const inputConfig = languageConfig[inputLanguage];
+  const characterMax = 240;
 
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -30,7 +31,7 @@ const Input = ({
           value={input}
           onChange={handleChange}
           placeholder={inputConfig.placeholder}
-          maxLength={120}
+          maxLength={characterMax}
           className={`${switched && 'right'}`}
         />
         <Image
@@ -39,7 +40,7 @@ const Input = ({
           className={`reset ${input && 'show'}`}
           onClick={reset}
         />
-      <div className='character-count'>{count}/120</div>
+      <div className='character-count'>{count}/{characterMax}</div>
         <label>{!switched ? inputLanguage : `دری ${inputLanguage} `}</label>
       </span>
     </div>
