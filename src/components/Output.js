@@ -45,7 +45,7 @@ const Output = ({ response, inputLanguage, loading }) => {
         cssOverride={override}
         aria-label="Loading Spinner"
       />
-      {response?.arabic && <p className='output-text-dari'>{response?.arabic}</p>}
+      {inputLanguage === 'English' && <p className='output-text-dari'>{response?.arabic}</p>}
       <p className='output-text'>{response?.latin}</p>
       {response && inputLanguage === 'Dari' &&
         <Image
