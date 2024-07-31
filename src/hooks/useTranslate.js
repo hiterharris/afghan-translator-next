@@ -34,7 +34,7 @@ const useTranslate = () => {
         }
         
         const isEnglish = inputLanguage === 'English' && languageDetected === 'en';
-        const isDari = inputLanguage === 'Dari';
+        const isDari = inputLanguage === 'Dari' && languageDetected !== 'en';
 
         if (isEnglish || isDari) {
             return true;
