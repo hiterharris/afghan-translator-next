@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Afghan Translator</string>
+    <string name="title_activity_main">Afghan Translator</string>
+    <string name="package_name">com.afghantranslatornext.hiterharris</string>
+    <string name="custom_url_scheme">com.afghantranslatornext.hiterharris</string>
+</resources>
