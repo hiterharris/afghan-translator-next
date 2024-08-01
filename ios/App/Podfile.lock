@@ -1,9 +1,9 @@
 PODS:
-  - Capacitor (6.1.0):
+  - Capacitor (6.1.1):
     - CapacitorCordova
   - CapacitorClipboard (6.0.0):
     - Capacitor
-  - CapacitorCordova (6.1.0)
+  - CapacitorCordova (6.1.1)
   - CapacitorDialog (6.0.0):
     - Capacitor
   - CapacitorRateApp (4.0.3):
@@ -29,9 +29,9 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/capacitor-rate-app"
 
 SPEC CHECKSUMS:
-  Capacitor: 187bd7847b6f71467015a20200a1a071be3e5f14
+  Capacitor: 8941aba4364ba9d1b22188569001f2ce45cc2b00
   CapacitorClipboard: 80282f684154124b9019ebf401235b70b0cf4994
-  CapacitorCordova: be703980ca797f847c3356f78fa175d21c8330c2
+  CapacitorCordova: 8f2cc8d8d3619c566e9418fe8772064a94266106
   CapacitorDialog: 64aa82840ee5e9c066f9e1a49c1e186afd3f24d2
   CapacitorRateApp: 896df7ec6a237fea72d1955e0cb26394654b00db
 
