@@ -2,11 +2,8 @@ import React from 'react';
 import Head from 'next/head'
 import { TranslateText } from '../components';
 import Script from 'next/script';
-import { RateApp } from 'capacitor-rate-app';
 
 export default function Home() {
-  RateApp.requestReview();
-
   return (
     <>
       <Head>
