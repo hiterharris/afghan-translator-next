@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import apiConfig from '@/config/apiConfig';
 import { Dialog } from '@capacitor/dialog';
 import { languageConfig } from '@/constants/languageConfig';
-import { detectLanguage } from '@/helpers';
+import DetectLanguage from 'detectlanguage';
 
 const useTranslate = () => {
     const { endpoint } = apiConfig();
@@ -11,12 +11,11 @@ const useTranslate = () => {
     const [response, setResponse] = useState('');
     const [input, setInput] = useState('');
     const [switched, setSwitched] = useState(true);
-    const [languageDetected, setLanguageDetected] = useState();
     const inputConfig = languageConfig[inputLanguage];
+    const detectlanguage = new DetectLanguage(process.env.NEXT_PUBLIC_LANGUAGE_DETECT_API_KEY);
     
     useEffect(() => {
         setLoading(false)
-        input?.length >= 3 && detectLanguage(input, setLanguageDetected);
         input?.length === 0  && setResponse('');
     }, [input]);
 
@@ -32,7 +31,9 @@ const useTranslate = () => {
             await showAlert();
             return false;
         }
-        
+
+        const languageDetected = await detectlanguage.detect(input).then(response => response[0]?.language);
+
         const isEnglish = inputLanguage === 'English' && languageDetected === 'en';
         const isDari = inputLanguage === 'Dari' && languageDetected !== 'en';
 
@@ -91,7 +92,7 @@ const useTranslate = () => {
         switched, 
         setSwitched,
         reset,
-        inputConfig
+        inputConfig,
     };
 };
 
