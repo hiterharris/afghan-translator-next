@@ -9,6 +9,7 @@ const useTranslate = () => {
     const [inputLanguage, setInputLanguage] = useState('English');
     const [loading, setLoading] = useState(false);
     const [response, setResponse] = useState('');
+    const [speech, setSpeech] = useState('');
     const [input, setInput] = useState('');
     const [switched, setSwitched] = useState(true);
     const inputConfig = languageConfig[inputLanguage];
@@ -62,7 +63,8 @@ const useTranslate = () => {
             })
             .then((response) => response.json())
             .then((data) => {
-                setResponse(JSON?.parse(data));
+                setResponse(JSON?.parse(data.result));
+                setSpeech(data.speech);
             })
             .catch((err) => {
                 console.error(err.message);
@@ -93,6 +95,7 @@ const useTranslate = () => {
         setSwitched,
         reset,
         inputConfig,
+        speech
     };
 };
 

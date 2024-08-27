@@ -18,7 +18,8 @@ const TranslateText = () => {
 		switched,
 		setSwitched,
 		reset,
-		inputConfig
+		inputConfig,
+		speech
 	} = useTranslate();
 
 	const handleTranslate = () => {
@@ -43,7 +44,7 @@ const TranslateText = () => {
 				switched={switched}
 				reset={reset}
 			/>
-			<Output response={response} inputLanguage={inputLanguage} loading={loading} />
+			<Output response={response} speech={speech} inputLanguage={inputLanguage} loading={loading} />
 			<Button
 				className='translate-button'
 				label={inputConfig.translate}

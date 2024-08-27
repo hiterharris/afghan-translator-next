@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import speech from '../assets/icons/speech.png';
+import speechIcon from '../assets/icons/speech.png';
 import copy from '../assets/icons/copy.png';
 import check from '../assets/icons/check.png';
 import Image from 'next/image';
-import { writeToClipboard } from '@/helpers';
+import { writeToClipboard, convertSpeech } from '@/helpers';
 import SyncLoader from "react-spinners/SyncLoader";
 
 const override = {
@@ -14,12 +14,11 @@ const override = {
   transform: 'translate(-50%, -50%)'
 };
 
-const Output = ({ response, inputLanguage, loading }) => {
+const Output = ({ response, speech, inputLanguage, loading }) => {
   const [isCopied, setIsCopied] = useState(false);
 
-  const speak = async (value) => {
-    let voice = new SpeechSynthesisUtterance(value);
-    await speechSynthesis.speak(voice);
+  const speak = async () => {
+    convertSpeech(speech);
   }
 
   const handleCopy = () => {
@@ -47,9 +46,9 @@ const Output = ({ response, inputLanguage, loading }) => {
       />
       {inputLanguage === 'English' && <p className='output-text-dari'>{response?.arabic}</p>}
       <p className='output-text'>{response?.latin}</p>
-      {response && inputLanguage === 'Dari' &&
+      {response &&
         <Image
-          src={speech}
+          src={speechIcon}
           alt='speaker icon'
           className='speech'
           onClick={() => speak(response?.latin)}
