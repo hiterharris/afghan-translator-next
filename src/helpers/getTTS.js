@@ -1,8 +1,8 @@
 import apiConfig from '@/config/apiConfig';
 
-const getTTS = async(text) => {
+const getTTS = async (text) => {
   const { endpoint } = apiConfig();
-
+  
     try {
         const response = await fetch(`${endpoint}/tts`, {
           method: 'POST',
@@ -18,6 +18,7 @@ const getTTS = async(text) => {
         const audioUrl = URL.createObjectURL(blob);
     
         const audio = new Audio(audioUrl);
+        audio.playbackRate = 0.7;
         audio.play();
       } catch (error) {
         console.error('Error fetching audio:', error);
