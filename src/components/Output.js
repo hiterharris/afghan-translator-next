@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import speech from '../assets/icons/speech.png';
-import copy from '../assets/icons/copy.png';
-import check from '../assets/icons/check.png';
+import React, { useState, useEffect } from 'react';
+import { copy, check } from '../assets/icons';
 import Image from 'next/image';
 import { writeToClipboard, getTTS } from '@/helpers';
 import SyncLoader from "react-spinners/SyncLoader";
+import { AudioButton } from '.';
 
 const override = {
   display: 'block',
@@ -16,8 +15,10 @@ const override = {
 
 const Output = ({ response, inputLanguage, loading }) => {
   const [isCopied, setIsCopied] = useState(false);
+  const [isAudioLoading, setIsAudioLoading] = useState(false);
 
-  const handleSpeak = () => {
+  const handleSpeak = async () => {
+    setIsAudioLoading(true);
     let text = '';
     if (inputLanguage === 'Dari') {
       text = response?.latin;
@@ -25,7 +26,7 @@ const Output = ({ response, inputLanguage, loading }) => {
       text = response?.arabic;
     }
     const tts = getTTS(text);
-    console.log('tts: ', tts);
+    await tts && setIsAudioLoading(false);
     return tts;
   }
 
@@ -57,21 +58,19 @@ const Output = ({ response, inputLanguage, loading }) => {
       />
       {inputLanguage === 'English' && <p className='output-text-dari'>{response?.arabic}</p>}
       <p className='output-text'>{response?.latin}</p>
-      {response &&
-        <Image
-          src={speech}
-          alt='speaker icon'
-          className='speech'
-          onClick={() => handleSpeak()}
+      {response && 
+      <>
+        <AudioButton
+          isAudioLoading={isAudioLoading}
+          handleSpeak={handleSpeak}
         />
-      }
-      {response &&
-        <Image
+         <Image
           src={isCopied ? check : copy}
           alt='copy icon'
           className='speech'
           onClick={handleCopy}
         />
+      </>
       }
     </div>
   );

@@ -13,18 +13,16 @@ const getTTS = async (text) => {
         if (!response.ok) {
           throw new Error('Failed to fetch audio');
         }
-    
+
         const blob = await response.blob();
         const audioUrl = URL.createObjectURL(blob);
-    
         const audio = new Audio(audioUrl);
-        audio.playbackRate = 0.7;
+        
+        audio.playbackRate = 1;
         audio.play();
       } catch (error) {
         console.error('Error fetching audio:', error);
       }
-
-
     return {};
 };
 
