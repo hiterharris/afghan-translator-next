@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { copy, check } from '../assets/icons';
+import React, { useState } from 'react';
+import copy from '../assets/icons/copy.png';
+import check from '../assets/icons/check.png';
 import Image from 'next/image';
 import { writeToClipboard, getTTS } from '@/helpers';
 import SyncLoader from "react-spinners/SyncLoader";
@@ -25,7 +26,7 @@ const Output = ({ response, inputLanguage, loading }) => {
     } else if (inputLanguage === 'English') {
       text = response?.arabic;
     }
-    const tts = getTTS(text);
+    const tts = getTTS(inputLanguage, text);
     await tts && setIsAudioLoading(false);
     return tts;
   }

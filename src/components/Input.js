@@ -9,7 +9,8 @@ const Input = ({
   setInput,
   inputLanguage,
   switched,
-  reset
+  reset,
+  handleKeyDown
 }) => {
   const [count, setCount] = useState(0);
   const inputConfig = languageConfig[inputLanguage];
@@ -28,9 +29,10 @@ const Input = ({
       <span className={`p-float-label input-textarea ${switched && 'right'}`}>
         <InputTextarea
           value={input}
-          onChange={handleChange}
+          onChange={e => handleChange(e)}
+          onKeyDown={handleKeyDown}
           placeholder={inputConfig.placeholder}
-          maxLength={120}
+          maxLength={240}
           className={`${switched && 'right'}`}
         />
         <Image
@@ -39,7 +41,7 @@ const Input = ({
           className={`reset ${input && 'show'}`}
           onClick={reset}
         />
-      <div className='character-count'>{count}/120</div>
+        <div className='character-count'>{count}/240</div>
         <label>{!switched ? inputLanguage : `دری ${inputLanguage} `}</label>
       </span>
     </div>
