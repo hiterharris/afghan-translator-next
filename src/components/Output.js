@@ -60,7 +60,7 @@ const Output = ({ response, inputLanguage, loading }) => {
       {inputLanguage === 'English' && <p className='output-text-dari'>{response?.arabic}</p>}
       <p className='output-text'>{response?.latin}</p>
       {response && 
-      <>
+      <div className='output-buttons'>
         <AudioButton
           isAudioLoading={isAudioLoading}
           handleSpeak={handleSpeak}
@@ -71,7 +71,7 @@ const Output = ({ response, inputLanguage, loading }) => {
           className='speech'
           onClick={handleCopy}
         />
-      </>
+      </div>
       }
     </div>
   );

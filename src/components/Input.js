@@ -32,16 +32,18 @@ const Input = ({
           onChange={e => handleChange(e)}
           onKeyDown={handleKeyDown}
           placeholder={inputConfig.placeholder}
-          maxLength={240}
+          maxLength={1200}
           className={`${switched && 'right'}`}
         />
-        <Image
-          src={refresh}
-          alt=""
-          className={`reset ${input && 'show'}`}
-          onClick={reset}
-        />
-        <div className='character-count'>{count}/240</div>
+        <div className='input-info'>
+          <div className='character-count'>{count}/1200</div>
+          <Image
+            src={refresh}
+            alt=""
+            className={`reset ${input && 'show'}`}
+            onClick={reset}
+          />
+        </div>
         <label>{!switched ? inputLanguage : `دری ${inputLanguage} `}</label>
       </span>
     </div>
