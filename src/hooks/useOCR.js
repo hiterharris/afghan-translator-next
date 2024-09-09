@@ -1,7 +1,7 @@
 import { useState } from 'react';
 const Tesseract = require("tesseract.js");
 
-const useOCR = (setLoading, inputLanguage, translate) => {
+const useOCR = (setLoading, inputLanguage) => {
     const [uploadStatus, setUploadStatus] = useState('');
     const [extractedText, setExtractedText] = useState('');
 
@@ -20,7 +20,6 @@ const useOCR = (setLoading, inputLanguage, translate) => {
 
             setExtractedText(text);
             setUploadStatus('Text extraction completed successfully!');
-            translate(text, inputLanguage);
         } catch (error) {
             console.error('Error extracting text:', error);
             setUploadStatus('An error occurred during text extraction.');
