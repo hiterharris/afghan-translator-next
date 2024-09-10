@@ -8,7 +8,7 @@ const Speaker = ({ handleSpeak }) => {
     <Image
       src={speech}
       alt='speaker icon'
-      className='speech'
+      className='speaker'
       onClick={() => handleSpeak()}
     />
   );
@@ -18,7 +18,7 @@ const SpeakerLoader = () => {
   return (
     <ClipLoader
       color="#504ed8"
-      className='speech'
+      className='speaker'
       size={20}
     />
   );

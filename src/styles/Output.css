@@ -32,7 +32,15 @@
     padding-top: 32px;
 }
 
-.speech {
+.copy {
+    float: right;
+    margin-top: 8px;
+    margin-right: 16px;
+    width: 24px;
+    height: 24px;
+}
+
+.speaker {
     float: right;
     margin-top: 8px;
     margin-right: 16px;

@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import copy from '../assets/icons/copy.png';
-import check from '../assets/icons/check.png';
-import Image from 'next/image';
 import { writeToClipboard, getTTS } from '@/helpers';
 import SyncLoader from "react-spinners/SyncLoader";
-import { AudioButton } from '.';
+import { OutputButtons } from '@/components';
 
 const override = {
   display: 'block',
@@ -61,15 +58,11 @@ const Output = ({ response, inputLanguage, loading }) => {
       <p className='output-text'>{response?.latin}</p>
       {response && 
       <div className='output-buttons'>
-        <AudioButton
+        <OutputButtons
           isAudioLoading={isAudioLoading}
           handleSpeak={handleSpeak}
-        />
-         <Image
-          src={isCopied ? check : copy}
-          alt='copy icon'
-          className='speech'
-          onClick={handleCopy}
+          isCopied={isCopied}
+          handleCopy={handleCopy}
         />
       </div>
       }
