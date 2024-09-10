@@ -6,7 +6,7 @@ import DetectLanguage from 'detectlanguage';
 
 const useTranslate = () => {
     const { endpoint } = apiConfig();
-    const [inputLanguage, setInputLanguage] = useState('English');
+    const [inputLanguage, setInputLanguage] = useState('Dari');
     const [loading, setLoading] = useState(false);
     const [response, setResponse] = useState('');
     const [input, setInput] = useState('');

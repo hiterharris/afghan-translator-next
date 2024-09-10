@@ -23,7 +23,14 @@ const TranslateText = () => {
 
 	const handleTranslate = () => {
 		translate(input, inputLanguage);
-	}
+	};
+
+	const handleKeyDown = (e) => {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			translate(input, inputLanguage);
+		}
+	};
 
 	return (
 		<div className="TranslateText">
@@ -42,6 +49,7 @@ const TranslateText = () => {
 				inputConfig={inputConfig}
 				switched={switched}
 				reset={reset}
+				handleKeyDown={handleKeyDown}
 			/>
 			<Output response={response} inputLanguage={inputLanguage} loading={loading} />
 			<Button

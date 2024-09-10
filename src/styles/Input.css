@@ -3,14 +3,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 32px;
     font-size: 18px;
 }
 
 .input-textarea {
     display: flex;
     flex-direction: column;
-    padding-top: 16px;
+    padding-top: 20px;
     border-radius: 20px;
     border: none;
     margin-bottom: 16px;
@@ -23,10 +22,10 @@
 
 .input-textarea textarea {
     width: 80vw;
-    height: 20vh;
+    height: 24vh;
     border-radius: 16px;
     font-size: 16px;
-    padding: 16px;
+    padding: 16px 16px 32px;
 }
 
 .input-textarea textarea::placeholder {
@@ -61,14 +60,15 @@
     text-align: center;
 }
 
+.input-info {
+    display: flex;
+    justify-content: space-between;
+}
+
 .reset {
     visibility: hidden;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 54px;
-    width: 32px;
-    padding-top: 24px;
+    height: 28px;
+    width: 28px;
     margin: 8px;
 }
 
@@ -79,7 +79,6 @@
 .character-count {
     font-size: 16px;
     color: grey;
-    position: absolute;
     margin: 8px 12px;
     left: 0;
     bottom: 0;
