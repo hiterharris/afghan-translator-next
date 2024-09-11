@@ -82,14 +82,15 @@ const TranslateText = () => {
 				inputLanguage={inputLanguage}
 				loading={loading}
 			/>
-			<Button
+
+			<div className='TabBar'>
+				<TabIcon handleFileChange={handleFileChange} icon={photos} captureType="photos" />
+				<Button
 				className='translate-button'
 				label={inputConfig.translate}
 				icon="pi pi-check"
 				onClick={handleTranslate}
 			/>
-			<div className='TabBar'>
-				<TabIcon handleFileChange={handleFileChange} icon={photos} captureType="photos" />
 				<TabIcon handleFileChange={handleFileChange} icon={camera} captureType="camera" />
 			</div>
 

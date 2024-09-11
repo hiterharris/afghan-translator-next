@@ -11,11 +11,8 @@ const TabIcon = ({ handleFileChange, icon, captureType }) => {
     }
 
     return (
-        <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }}>
-            <label
-                htmlFor={`file-input-${captureType}`}
-                style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-            >
+        <div className='TabIcon'>
+            <label htmlFor={`file-input-${captureType}`}>
                 <Image
                     src={icon}
                     alt={`${captureType === 'camera' ? 'camera' : captureType === 'library' ? 'library' : 'file'} icon`}
