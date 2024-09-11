@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
+import Upload from './Upload';
 import { useTranslate } from '../hooks';
 import { Button } from 'primereact/button';
+import { useOCR } from '../hooks';
 
 const TranslateText = () => {
 	const {
@@ -15,11 +17,14 @@ const TranslateText = () => {
 		loading,
 		setLoading,
 		response,
+		setResponse,
 		switched,
 		setSwitched,
 		reset,
 		inputConfig
 	} = useTranslate();
+
+	const { extractedText, handleFileChange } = useOCR(setLoading, inputLanguage, translate);
 
 	const handleTranslate = () => {
 		translate(input, inputLanguage);
@@ -31,6 +36,11 @@ const TranslateText = () => {
 			translate(input, inputLanguage);
 		}
 	};
+
+	useEffect(() => {
+	  setInput(extractedText);
+	  setResponse('');
+	}, [extractedText]);
 
 	return (
 		<div className="TranslateText">
@@ -51,13 +61,18 @@ const TranslateText = () => {
 				reset={reset}
 				handleKeyDown={handleKeyDown}
 			/>
-			<Output response={response} inputLanguage={inputLanguage} loading={loading} />
+			<Output
+				response={response}
+				inputLanguage={inputLanguage}
+				loading={loading}
+			/>
 			<Button
 				className='translate-button'
 				label={inputConfig.translate}
 				icon="pi pi-check"
 				onClick={handleTranslate}
 			/>
+			<Upload handleFileChange={handleFileChange} />
 		</div>
 	);
 }
