@@ -1,5 +1,6 @@
 import { useState } from 'react';
-const Tesseract = require("tesseract.js");
+import Tesseract from 'tesseract.js';
+
 
 const useOCR = (setLoading, inputLanguage, translate) => {
     const [uploadStatus, setUploadStatus] = useState('');

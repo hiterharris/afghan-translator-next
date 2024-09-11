@@ -6,5 +6,6 @@ import check from './copy.png';
 import speech from './speech.png';
 import play from './play.png';
 import pause from './pause.png';
+import camera from './camera.png';
 
-export { english, dari, swap, copy, check, speech, play, pause };
+export { english, dari, swap, copy, check, speech, play, pause, camera };

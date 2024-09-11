@@ -3,9 +3,10 @@ import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
 import Upload from './Upload';
-import { useTranslate } from '../hooks';
+import { useTranslate, useOCR, useCamera } from '../hooks';
 import { Button } from 'primereact/button';
-import { useOCR } from '../hooks';
+import camera from '@/assets/icons/camera.png';
+import Image from 'next/image';
 
 const TranslateText = () => {
 	const {
@@ -25,6 +26,7 @@ const TranslateText = () => {
 	} = useTranslate();
 
 	const { extractedText, handleFileChange } = useOCR(setLoading, inputLanguage, translate);
+	const { takePicture, imageUrl } = useCamera();
 
 	const handleTranslate = () => {
 		translate(input, inputLanguage);
@@ -38,8 +40,8 @@ const TranslateText = () => {
 	};
 
 	useEffect(() => {
-	  setInput(extractedText);
-	  setResponse('');
+		setInput(extractedText);
+		setResponse('');
 	}, [extractedText]);
 
 	return (
@@ -50,6 +52,13 @@ const TranslateText = () => {
 				setSwitched={setSwitched}
 				reset={reset}
 			/>
+			{imageUrl && <Image
+				src={imageUrl}
+				alt="camera icon"
+				className='icon camera'
+				width={100}
+				height={150}
+			/>}
 			<Input
 				input={input}
 				setInput={setInput}
@@ -73,6 +82,12 @@ const TranslateText = () => {
 				onClick={handleTranslate}
 			/>
 			<Upload handleFileChange={handleFileChange} />
+			<Image
+				src={camera}
+				alt="camera icon"
+				className='icon camera'
+				onClick={takePicture}
+			/>
 		</div>
 	);
 }
