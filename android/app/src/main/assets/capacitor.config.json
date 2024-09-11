@@ -1,8 +1,0 @@
-{
-	"appId": "com.afghantranslatornext.hiterharris",
-	"appName": "Afghan Translator",
-	"webDir": "out",
-	"server": {
-		"androidScheme": "https"
-	}
-}
