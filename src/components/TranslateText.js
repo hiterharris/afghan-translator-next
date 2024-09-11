@@ -2,11 +2,13 @@ import React, { useEffect } from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
-import Upload from './Upload';
+import TabIcon from './TabIcon';
 import { useTranslate, useOCR, useCamera } from '../hooks';
 import { Button } from 'primereact/button';
 import camera from '@/assets/icons/camera.png';
 import Image from 'next/image';
+import upload from "@/assets/icons/upload.png";
+import photos from "@/assets/icons/photos.png";
 
 const TranslateText = () => {
 	const {
@@ -43,6 +45,11 @@ const TranslateText = () => {
 		setInput(extractedText);
 		setResponse('');
 	}, [extractedText]);
+
+	const tabs = [
+		{ title: 'Text', content: 'Text content' },
+		{ title: 'Image', content: 'Image content' }
+	];
 
 	return (
 		<div className="TranslateText">
@@ -81,13 +88,11 @@ const TranslateText = () => {
 				icon="pi pi-check"
 				onClick={handleTranslate}
 			/>
-			<Upload handleFileChange={handleFileChange} />
-			<Image
-				src={camera}
-				alt="camera icon"
-				className='icon camera'
-				onClick={takePicture}
-			/>
+			<div className='TabBar'>
+				<TabIcon handleFileChange={handleFileChange} icon={photos} captureType="photos" />
+				<TabIcon handleFileChange={handleFileChange} icon={camera} captureType="camera" />
+			</div>
+
 		</div>
 	);
 }
