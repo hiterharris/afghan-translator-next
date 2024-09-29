@@ -1,20 +1,24 @@
+// components/Upload.js
+import React from 'react';
 import Image from 'next/image';
-import upload from "@/assets/icons/upload.png";
+import uploadIcon from "@/assets/icons/upload.png";
 
 const Upload = ({ handleFileChange }) => {
     return (
         <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }}>
-            <label htmlFor="file-input" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+            <label htmlFor="upload-input" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
                 <Image
-                    src={upload}
+                    src={uploadIcon}
                     alt="upload icon"
                     className='icon upload'
+                    width={40}
+                    height={40}
                 />
             </label>
             <input
                 type="file"
-                id="file-input"
-                accept="image/*"
+                id="upload-input"
+                // Accept all file types for the file picker
                 style={{ display: 'none' }}
                 onChange={handleFileChange}
             />
