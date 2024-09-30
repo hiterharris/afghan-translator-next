@@ -1,9 +1,8 @@
-// components/TranslateText.js
-import React, { useEffect } from 'react';
+import React from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
-import MediaHandler from './MediaHandler'; // Import MediaHandler component
+import MediaHandler from './MediaHandler';
 import { useTranslate } from '../hooks';
 import { Button } from 'primereact/button';
 import { useOCR } from '../hooks';
@@ -18,17 +17,16 @@ const TranslateText = () => {
 		loading,
 		setLoading,
 		response,
-		setResponse,
 		switched,
 		setSwitched,
 		reset,
 		inputConfig
 	} = useTranslate();
 
-	const { extractedText, handleFileChange } = useOCR(setLoading, inputLanguage, translate);
+	const { upload } = useOCR();
 
 	const handleTranslate = () => {
-		translate(input, inputLanguage);
+		translate(input);
 	};
 
 	const handleKeyDown = (e) => {
@@ -38,10 +36,9 @@ const TranslateText = () => {
 		}
 	};
 
-	useEffect(() => {
-		setInput(extractedText);
-		setResponse('');
-	}, [extractedText]);
+	const handleFileChange = (e) => {
+		upload(e, setLoading, setInput, inputLanguage, handleTranslate)
+	};
 
 	return (
 		<div className="TranslateText">
@@ -69,7 +66,7 @@ const TranslateText = () => {
 				icon="pi pi-check"
 				onClick={handleTranslate}
 			/>
-			<MediaHandler handleFileChange={handleFileChange} /> {/* Use MediaHandler here */}
+			<MediaHandler handleFileChange={handleFileChange} />
 		</div>
 	);
 }

@@ -26,8 +26,9 @@ const useTranslate = () => {
         });
     };
 
-    const validateInput = async (text) => {
-        if (text.trim() === '') {
+    const validateInput = async () => {
+        console.log({input});
+        if (input.trim() === '') {
             await showAlert();
             return false;
         }
@@ -45,7 +46,7 @@ const useTranslate = () => {
         }
     };
     
-    const translate = async (input) => {
+    const translate = async () => {
         const isValid = await validateInput(input);
         if (isValid) {
             setLoading(true);
