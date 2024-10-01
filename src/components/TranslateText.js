@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
@@ -23,10 +23,11 @@ const TranslateText = () => {
 		inputConfig
 	} = useTranslate();
 
-	const { upload } = useOCR();
+	const { upload, performOCR } = useOCR();
 
-	const handleTranslate = () => {
-		translate(input);
+	const handleFileChange = (e, imagePath) => {
+		imagePath ? performOCR(imagePath) :
+		upload(e, setLoading, setInput, inputLanguage, handleTranslate);
 	};
 
 	const handleKeyDown = (e) => {
@@ -36,9 +37,13 @@ const TranslateText = () => {
 		}
 	};
 
-	const handleFileChange = (e) => {
-		upload(e, setLoading, setInput, inputLanguage, handleTranslate)
+	const handleTranslate = () => {
+		translate(input);
 	};
+
+	useEffect(() => {
+	  console.log('input: ', input)
+	}, [input])
 
 	return (
 		<div className="TranslateText">
@@ -66,7 +71,7 @@ const TranslateText = () => {
 				icon="pi pi-check"
 				onClick={handleTranslate}
 			/>
-			<MediaHandler handleFileChange={handleFileChange} />
+			<MediaHandler handleFileChange={handleFileChange} performOCR={performOCR} />
 		</div>
 	);
 }

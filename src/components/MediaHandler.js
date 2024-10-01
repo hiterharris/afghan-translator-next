@@ -5,8 +5,9 @@ import Image from 'next/image';
 import uploadIcon from "@/assets/icons/upload.png";
 import cameraIcon from "@/assets/icons/camera.png";
 import photoLibraryIcon from "@/assets/icons/photos.png";
+import { scanDocument } from '@/helpers';
 
-const MediaHandler = ({ handleFileChange }) => {
+const MediaHandler = ({ handleFileChange, performOCR }) => {
   
   const takePhoto = async () => {
     try {
@@ -15,6 +16,7 @@ const MediaHandler = ({ handleFileChange }) => {
         resultType: CameraResultType.DataUrl,
         source: CameraSource.Camera,
       });
+      console.log("take photo:", photo);
       const photoBlob = dataURLtoBlob(photo.dataUrl);
       handleFileChange({ target: { files: [photoBlob] } });
     } catch (error) {
@@ -29,6 +31,7 @@ const MediaHandler = ({ handleFileChange }) => {
         resultType: CameraResultType.DataUrl,
         source: CameraSource.Photos,
       });
+      console.log("pick photo:", photo);
       const photoBlob = dataURLtoBlob(photo.dataUrl);
       handleFileChange({ target: { files: [photoBlob] } });
     } catch (error) {
@@ -52,6 +55,15 @@ const MediaHandler = ({ handleFileChange }) => {
     return new Blob([u8arr], { type: mime });
   };
 
+  const documentScan = async () => {
+    const document = await scanDocument();
+    console.log("document:", document);
+    const documentBlob = dataURLtoBlob(document);
+    console.log("documentBlob:", documentBlob);
+    performOCR(documentBlob);
+  }
+
+
   return (
     <div className="media-handler" style={{ display: 'flex', justifyContent: 'space-around', marginTop: '20px' }}>
       <label htmlFor="file-input" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
@@ -60,6 +72,7 @@ const MediaHandler = ({ handleFileChange }) => {
       <input
         type="file"
         id="file-input"
+        accept="file"
         style={{ display: 'none' }}
         onChange={handleFileUpload}
       />
@@ -69,6 +82,10 @@ const MediaHandler = ({ handleFileChange }) => {
       </div>
 
       <div style={{ cursor: 'pointer' }} onClick={takePhoto}>
+        <Image src={cameraIcon} alt="Camera" className="icon camera" width={40} height={40} />
+      </div>
+
+      <div style={{ cursor: 'pointer' }} onClick={documentScan}>
         <Image src={cameraIcon} alt="Camera" className="icon camera" width={40} height={40} />
       </div>
     </div>
