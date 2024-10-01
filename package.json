@@ -23,6 +23,7 @@
     "@capacitor/dialog": "^6.0.0",
     "@capacitor/filesystem": "^6.0.1",
     "@capacitor/ios": "^6.0.0",
+    "capacitor-document-scanner": "^2.0.0",
     "cross-env": "^7.0.3",
     "detectlanguage": "^2.1.0",
     "ldrs": "^1.0.2",

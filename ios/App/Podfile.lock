@@ -8,6 +8,8 @@ PODS:
   - CapacitorCordova (6.1.2)
   - CapacitorDialog (6.0.1):
     - Capacitor
+  - CapacitorDocumentScanner (2.0.0):
+    - Capacitor
   - CapacitorFilesystem (6.0.1):
     - Capacitor
 
@@ -17,6 +19,7 @@ DEPENDENCIES:
   - "CapacitorClipboard (from `../../node_modules/@capacitor/clipboard`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorDialog (from `../../node_modules/@capacitor/dialog`)"
+  - CapacitorDocumentScanner (from `../../node_modules/capacitor-document-scanner`)
   - "CapacitorFilesystem (from `../../node_modules/@capacitor/filesystem`)"
 
 EXTERNAL SOURCES:
@@ -30,6 +33,8 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/ios"
   CapacitorDialog:
     :path: "../../node_modules/@capacitor/dialog"
+  CapacitorDocumentScanner:
+    :path: "../../node_modules/capacitor-document-scanner"
   CapacitorFilesystem:
     :path: "../../node_modules/@capacitor/filesystem"
 
@@ -39,8 +44,9 @@ SPEC CHECKSUMS:
   CapacitorClipboard: 756cd7e83e8d5d19b0c74f40b57517c287bd5fe2
   CapacitorCordova: f48c89f96c319101cd2f0ce8a2b7449b5fb8b3dd
   CapacitorDialog: ad752191fdb22a8d0ac199b0754b8a021d86dbf9
+  CapacitorDocumentScanner: 91258121abad1becc90936f85ad0fff4146e50b1
   CapacitorFilesystem: 37fb3aa5c945b4539ab11c74a5c57925a302bf24
 
-PODFILE CHECKSUM: 5fcf23cb14602684fa445c126afeee1cec9b6603
+PODFILE CHECKSUM: a7129ab6257677ec8b71f89ed80506644511a350
 
 COCOAPODS: 1.15.2

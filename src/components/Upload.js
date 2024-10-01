@@ -18,7 +18,6 @@ const Upload = ({ handleFileChange }) => {
             <input
                 type="file"
                 id="upload-input"
-                // Accept all file types for the file picker
                 style={{ display: 'none' }}
                 onChange={handleFileChange}
             />
