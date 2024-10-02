@@ -12,8 +12,6 @@ PODS:
     - Capacitor
   - CapacitorFilesystem (6.0.1):
     - Capacitor
-  - CapawesomeCapacitorFilePicker (6.0.1):
-    - Capacitor
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
@@ -23,7 +21,6 @@ DEPENDENCIES:
   - "CapacitorDialog (from `../../node_modules/@capacitor/dialog`)"
   - CapacitorDocumentScanner (from `../../node_modules/capacitor-document-scanner`)
   - "CapacitorFilesystem (from `../../node_modules/@capacitor/filesystem`)"
-  - "CapawesomeCapacitorFilePicker (from `../../node_modules/@capawesome/capacitor-file-picker`)"
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -40,8 +37,6 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/capacitor-document-scanner"
   CapacitorFilesystem:
     :path: "../../node_modules/@capacitor/filesystem"
-  CapawesomeCapacitorFilePicker:
-    :path: "../../node_modules/@capawesome/capacitor-file-picker"
 
 SPEC CHECKSUMS:
   Capacitor: 679f9673fdf30597493a6362a5d5bf233d46abc2
@@ -51,8 +46,7 @@ SPEC CHECKSUMS:
   CapacitorDialog: ad752191fdb22a8d0ac199b0754b8a021d86dbf9
   CapacitorDocumentScanner: 91258121abad1becc90936f85ad0fff4146e50b1
   CapacitorFilesystem: 37fb3aa5c945b4539ab11c74a5c57925a302bf24
-  CapawesomeCapacitorFilePicker: c80c30759ba48986ff34a2b51b23ac2babfd3774
 
-PODFILE CHECKSUM: 73362111216809e0515dd604e0d00cb44257d78f
+PODFILE CHECKSUM: a7129ab6257677ec8b71f89ed80506644511a350
 
 COCOAPODS: 1.15.2
