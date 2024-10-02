@@ -4,11 +4,12 @@ const Tesseract = require("tesseract.js");
 const useOCR = () => {
     const [isUploading, setIsUploading] = useState(false);
 
-    const upload = async (event, setLoading, setInput, inputLanguage) => {
+    const upload = async (e, setLoading, setInput, inputLanguage) => {
         const language = inputLanguage === 'Dari' ? 'fas' : 'eng';
         try {
-          const file = typeof event === 'string' ? event : event.target.files[0];
-            // const file = event.target.files[0];
+          const file = typeof e === 'string' ? e : e.target.files[0];
+          console.log('file: ', file);
+          alert('file: ' + file);
             if (!file) return;
 
             setLoading(true);

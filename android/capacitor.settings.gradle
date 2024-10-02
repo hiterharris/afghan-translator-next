@@ -14,8 +14,5 @@ project(':capacitor-dialog').projectDir = new File('../node_modules/@capacitor/d
 include ':capacitor-filesystem'
 project(':capacitor-filesystem').projectDir = new File('../node_modules/@capacitor/filesystem/android')
 
-include ':capawesome-capacitor-file-picker'
-project(':capawesome-capacitor-file-picker').projectDir = new File('../node_modules/@capawesome/capacitor-file-picker/android')
-
 include ':capacitor-document-scanner'
 project(':capacitor-document-scanner').projectDir = new File('../node_modules/capacitor-document-scanner/android')

@@ -5,7 +5,7 @@ import Output from './Output';
 import MediaHandler from './MediaHandler';
 import { useTranslate } from '../hooks';
 import { Button } from 'primereact/button';
-import { useOCR, useMedia } from '../hooks';
+import { useOCR } from '../hooks';
 
 const TranslateText = () => {
 	const {
@@ -17,6 +17,7 @@ const TranslateText = () => {
 		loading,
 		setLoading,
 		response,
+		setResponse,
 		switched,
 		setSwitched,
 		reset,
@@ -25,11 +26,9 @@ const TranslateText = () => {
 
 	const { upload } = useOCR();
 
-	// const { } = useMedia();
-
-	const handleFileChange = (eventOrImagePath) => {
-		console.log('eventOrImagePath: ', eventOrImagePath);
-		upload(eventOrImagePath, setLoading, setInput, inputLanguage, handleTranslate);
+	const handleFileChange = (e) => {
+		console.log('eventOrImagePath: ', e);
+		upload(e, setLoading, setInput, inputLanguage, handleTranslate);
 	};
 
 	const handleKeyDown = (e) => {
