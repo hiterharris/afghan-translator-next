@@ -5,9 +5,10 @@ import Image from 'next/image';
 import uploadIcon from "@/assets/icons/upload.png";
 import cameraIcon from "@/assets/icons/camera.png";
 import photoLibraryIcon from "@/assets/icons/photos.png";
+import scanIcon from "@/assets/icons/scan.png";
 import { scanDocument } from '@/helpers';
 
-const MediaHandler = ({ handleFileChange, performOCR }) => {
+const MediaHandler = ({ handleFileChange }) => {
   
   const takePhoto = async () => {
     try {
@@ -56,13 +57,16 @@ const MediaHandler = ({ handleFileChange, performOCR }) => {
   };
 
   const documentScan = async () => {
-    const document = await scanDocument();
-    console.log("document:", document);
-    const documentBlob = dataURLtoBlob(document);
-    console.log("documentBlob:", documentBlob);
-    performOCR(documentBlob);
+    try {
+      const document = await scanDocument();
+      console.log("document:", document);
+      const documentBlob = dataURLtoBlob(document);
+      console.log("documentBlob:", documentBlob);
+      handleFileChange(documentBlob);
+    } catch (error) {
+      console.error('Error scanning document:', error);
+    }
   }
-
 
   return (
     <div className="media-handler" style={{ display: 'flex', justifyContent: 'space-around', marginTop: '20px' }}>
@@ -72,7 +76,6 @@ const MediaHandler = ({ handleFileChange, performOCR }) => {
       <input
         type="file"
         id="file-input"
-        accept="file"
         style={{ display: 'none' }}
         onChange={handleFileUpload}
       />
@@ -86,7 +89,7 @@ const MediaHandler = ({ handleFileChange, performOCR }) => {
       </div>
 
       <div style={{ cursor: 'pointer' }} onClick={documentScan}>
-        <Image src={cameraIcon} alt="Camera" className="icon camera" width={40} height={40} />
+        <Image src={scanIcon} alt="Scan" className="icon scan" width={40} height={40} />
       </div>
     </div>
   );
