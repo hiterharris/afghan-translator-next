@@ -7,7 +7,8 @@ const useOCR = () => {
     const upload = async (event, setLoading, setInput, inputLanguage) => {
         const language = inputLanguage === 'Dari' ? 'fas' : 'eng';
         try {
-            const file = event.target.files[0];
+          const file = typeof event === 'string' ? event : event.target.files[0];
+            // const file = event.target.files[0];
             if (!file) return;
 
             setLoading(true);
@@ -27,27 +28,7 @@ const useOCR = () => {
         }
     };
 
-    const performOCR = async(imagePath) => {  
-        console.log("Performing OCR on image:", imagePath);
-        try {
-            setLoading(true);
-            setIsUploading(true);
-          const { data: { text } } = await Tesseract.recognize(imagePath, "eng", {
-            logger: (m) => console.log(m), 
-          });
-          console.log("Extracted Text:", text);
-      
-        setInput(text);
-        setIsUploading(false);
-
-        } catch (error) {
-          console.error("Error performing OCR:", error);
-        } finally {
-            setLoading(false);
-        }
-      }
-
-    return { isUploading, upload, performOCR }
+    return { isUploading, upload }
 }
 
 export default useOCR;
