@@ -1,17 +1,22 @@
-import { Capacitor } from '@capacitor/core'
-import { DocumentScanner } from 'capacitor-document-scanner'
+import { Capacitor } from '@capacitor/core';
+import { DocumentScanner } from 'capacitor-document-scanner';
 
 const scanDocument = async () => {
-  // start the document scanner
-  const { scannedImages } = await DocumentScanner.scanDocument()
+  try {
+    const { scannedImages } = await DocumentScanner.scanDocument();
 
-  // get back an array with scanned image file paths
-  if (scannedImages.length > 0) {
-    // set the img src, so we can view the first scanned image
-    const scannedImage = document.getElementById('scannedImage');
-    scannedImage.src = Capacitor.convertFileSrc(scannedImages[0])
+    if (scannedImages.length > 0) {
+      const scannedImage = document.getElementById('scannedImage');
+      if (scannedImage) {
+        scannedImage.src = Capacitor.convertFileSrc(scannedImages[0]);
+      } else {
+        console.error('Element with ID "scannedImage" not found.');
+      }
+    }
+    return scannedImages;
+  } catch (error) {
+    console.error('Error scanning document:', error);
   }
-  return scannedImages;
-}
+};
 
 export default scanDocument;

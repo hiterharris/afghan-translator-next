@@ -1,5 +1,9 @@
 [
 	{
+		"pkg": "@capacitor-community/camera-preview",
+		"classpath": "com.ahm.capacitor.camera.preview.CameraPreview"
+	},
+	{
 		"pkg": "@capacitor/camera",
 		"classpath": "com.capacitorjs.plugins.camera.CameraPlugin"
 	},
@@ -16,7 +20,19 @@
 		"classpath": "com.capacitorjs.plugins.filesystem.FilesystemPlugin"
 	},
 	{
+		"pkg": "@capacitor/storage",
+		"classpath": "com.capacitorjs.plugins.storage.StoragePlugin"
+	},
+	{
+		"pkg": "@capawesome/capacitor-file-picker",
+		"classpath": "io.capawesome.capacitorjs.plugins.filepicker.FilePickerPlugin"
+	},
+	{
 		"pkg": "capacitor-document-scanner",
 		"classpath": "com.websitebeaver.capacitordocumentscanner.DocumentScannerPlugin"
+	},
+	{
+		"pkg": "mdocument-scanner",
+		"classpath": "com.mantosh.plugins.mdocumentscanner.MdocumentScanner"
 	}
 ]

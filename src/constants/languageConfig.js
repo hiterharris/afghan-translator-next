@@ -18,6 +18,12 @@ export const languageConfig = {
       alertMessage: 'Please enter text in English.',
       errorResponse: {
         latin: `We're sorry, we are unable to complete your request at this time.`,
+      },
+      icons: {
+        file: 'File',
+        photo: 'Photo',
+        camera: 'Camera',
+        scan: 'Scan'
       }
     },
     'Dari': {
@@ -28,6 +34,12 @@ export const languageConfig = {
       alertMessage: 'لطفاً متن را برای ترجمه وارد کنید',
       errorResponse: {
         arabic:  'ببخشید، ما نمیتوانم درخواست شما را انجام دهم'
+      },
+      icons: {
+        file: 'فایل',
+        photo: 'عکس',
+        camera: 'دوربین',
+        scan: 'اسکن'
       }
   }
 }

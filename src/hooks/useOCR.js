@@ -1,35 +1,29 @@
 import { useState } from 'react';
-const Tesseract = require("tesseract.js");
+import Tesseract from 'tesseract.js';
 
 const useOCR = () => {
     const [isUploading, setIsUploading] = useState(false);
-
-    const upload = async (e, setLoading, setInput, inputLanguage) => {
+    
+    const upload = async (dataUrl, setLoading, setInput, inputLanguage) => {
+        console.log('dataUrl: ', dataUrl);
         const language = inputLanguage === 'Dari' ? 'fas' : 'eng';
         try {
-          const file = typeof e === 'string' ? e : e.target.files[0];
-          console.log('file: ', file);
-          alert('file: ' + file);
-            if (!file) return;
-
             setLoading(true);
             setIsUploading(true);
-
-            const { data: { text } } = await Tesseract.recognize(file, language, {
+            Tesseract.setLogging(true);
+            const { data: { text } } = await Tesseract.recognize(dataUrl, language, {
                 logger: () => {},
             });
-
             setInput(text);
-            setIsUploading(false);
         } catch (error) {
             console.error('Error extracting text:', error);
-            setIsUploading('An error occurred during text extraction.');
         } finally {
+            setIsUploading(false);
             setLoading(false);
         }
     };
 
-    return { isUploading, upload }
-}
+    return { isUploading, upload };
+};
 
 export default useOCR;

@@ -9,11 +9,15 @@ android {
 
 apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
+    implementation project(':capacitor-community-camera-preview')
     implementation project(':capacitor-camera')
     implementation project(':capacitor-clipboard')
     implementation project(':capacitor-dialog')
     implementation project(':capacitor-filesystem')
+    implementation project(':capacitor-storage')
+    implementation project(':capawesome-capacitor-file-picker')
     implementation project(':capacitor-document-scanner')
+    implementation project(':mdocument-scanner')
 
 }
 
