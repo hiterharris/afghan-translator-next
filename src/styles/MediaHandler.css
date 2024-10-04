@@ -1,0 +1,16 @@
+.media-handler {
+    width: 80vw;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.icon {
+    margin: 0 16px;
+}
+
+.icon-label {
+    font-size: 12px;
+    margin-top: 4px;
+    color: #504ED8;
+}

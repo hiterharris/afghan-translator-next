@@ -10,10 +10,8 @@ export default function Home() {
         <meta name="description" content="Dari-English Translator App" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <script src="//unpkg.com/moesif-browser-js@v1/moesif.min.js"></script>
- 
       </Head>
-      <Script src="//unpkg.com/moesif-browser-js@v1/moesif.min.js"></Script>
+      <script src="//unpkg.com/moesif-browser-js@v1/moesif.min.js"></script>
       <Script
         id="moesif-init"
         strategy="afterInteractive"
