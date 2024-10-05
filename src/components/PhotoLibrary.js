@@ -1,7 +1,6 @@
-// components/PhotoLibrary.js
 import React from 'react';
 import Image from 'next/image';
-import photoLibraryIcon from "@/assets/icons/photos.png"; // Add your photo library icon
+import photoLibraryIcon from "@/assets/icons/photos.png";
 
 const PhotoLibrary = ({ handleFileChange }) => {
     return (
@@ -19,7 +18,7 @@ const PhotoLibrary = ({ handleFileChange }) => {
                 type="file"
                 id="photo-library-input"
                 accept="image/*"
-                capture="" // Ensure this is empty to access only the photo library
+                capture=""
                 style={{ display: 'none' }}
                 onChange={handleFileChange}
             />

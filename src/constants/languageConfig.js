@@ -6,8 +6,8 @@ export const languageConfig = {
     alertTitle: 'Input Warning',
     alertMessage: 'Please enter text',
     errorResponse: {
-      latin: `We're sorry, we are unable to complete your request at this time.`,
-      arabic:  'ببخشید، ما نمیتوانم درخواست شما را انجام دهم'
+      english: `We're sorry, we are unable to complete your request at this time.`,
+      dari:  'ببخشید، ما نمیتوانم درخواست شما را انجام دهم'
     }
   },
   'English': {
@@ -17,7 +17,7 @@ export const languageConfig = {
       alertTitle: 'Input Warning',
       alertMessage: 'Please enter text in English.',
       errorResponse: {
-        latin: `We're sorry, we are unable to complete your request at this time.`,
+        dari: `We're sorry, we are unable to complete your request at this time.`,
       },
       icons: {
         file: 'File',
@@ -33,7 +33,7 @@ export const languageConfig = {
       alertTitle: 'پیغام هوشدار',
       alertMessage: 'لطفاً متن را برای ترجمه وارد کنید',
       errorResponse: {
-        arabic:  'ببخشید، ما نمیتوانم درخواست شما را انجام دهم'
+        dari:  'ببخشید، ما نمیتوانم درخواست شما را انجام دهم'
       },
       icons: {
         file: 'فایل',

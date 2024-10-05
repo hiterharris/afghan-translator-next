@@ -39,8 +39,6 @@ const TranslateText = () => {
     translate(input);
   };
 
-  
-
   return (
     <div className="TranslateText">
       <Languages
