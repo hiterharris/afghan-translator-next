@@ -5,34 +5,28 @@ PODS:
     - Capacitor
   - CapacitorClipboard (6.0.1):
     - Capacitor
-  - CapacitorCommunityCameraPreview (6.0.0):
-    - Capacitor
   - CapacitorCordova (6.1.2)
+  - CapacitorDevice (6.0.1):
+    - Capacitor
   - CapacitorDialog (6.0.1):
     - Capacitor
   - CapacitorDocumentScanner (2.0.0):
     - Capacitor
-  - CapacitorFilesystem (6.0.1):
+  - CapacitorPreferences (6.0.2):
     - Capacitor
-  - CapacitorStorage (1.2.5):
-    - Capacitor
-  - CapawesomeCapacitorFilePicker (6.0.1):
-    - Capacitor
-  - MdocumentScanner (0.0.4):
+  - CapawesomeCapacitorFilePicker (6.1.0):
     - Capacitor
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorCamera (from `../../node_modules/@capacitor/camera`)"
   - "CapacitorClipboard (from `../../node_modules/@capacitor/clipboard`)"
-  - "CapacitorCommunityCameraPreview (from `../../node_modules/@capacitor-community/camera-preview`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorDevice (from `../../node_modules/@capacitor/device`)"
   - "CapacitorDialog (from `../../node_modules/@capacitor/dialog`)"
   - CapacitorDocumentScanner (from `../../node_modules/capacitor-document-scanner`)
-  - "CapacitorFilesystem (from `../../node_modules/@capacitor/filesystem`)"
-  - "CapacitorStorage (from `../../node_modules/@capacitor/storage`)"
+  - "CapacitorPreferences (from `../../node_modules/@capacitor/preferences`)"
   - "CapawesomeCapacitorFilePicker (from `../../node_modules/@capawesome/capacitor-file-picker`)"
-  - MdocumentScanner (from `../../node_modules/mdocument-scanner`)
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -41,36 +35,30 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/camera"
   CapacitorClipboard:
     :path: "../../node_modules/@capacitor/clipboard"
-  CapacitorCommunityCameraPreview:
-    :path: "../../node_modules/@capacitor-community/camera-preview"
   CapacitorCordova:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorDevice:
+    :path: "../../node_modules/@capacitor/device"
   CapacitorDialog:
     :path: "../../node_modules/@capacitor/dialog"
   CapacitorDocumentScanner:
     :path: "../../node_modules/capacitor-document-scanner"
-  CapacitorFilesystem:
-    :path: "../../node_modules/@capacitor/filesystem"
-  CapacitorStorage:
-    :path: "../../node_modules/@capacitor/storage"
+  CapacitorPreferences:
+    :path: "../../node_modules/@capacitor/preferences"
   CapawesomeCapacitorFilePicker:
     :path: "../../node_modules/@capawesome/capacitor-file-picker"
-  MdocumentScanner:
-    :path: "../../node_modules/mdocument-scanner"
 
 SPEC CHECKSUMS:
   Capacitor: 679f9673fdf30597493a6362a5d5bf233d46abc2
   CapacitorCamera: ed022171dbf3853e68eec877b4d78995378af6b7
   CapacitorClipboard: 756cd7e83e8d5d19b0c74f40b57517c287bd5fe2
-  CapacitorCommunityCameraPreview: 9319cde1da660b7643833dac20aaa85135bd1441
   CapacitorCordova: f48c89f96c319101cd2f0ce8a2b7449b5fb8b3dd
+  CapacitorDevice: 7097a1deb4224b77fd13a6e60a355d0062a5d772
   CapacitorDialog: ad752191fdb22a8d0ac199b0754b8a021d86dbf9
   CapacitorDocumentScanner: 91258121abad1becc90936f85ad0fff4146e50b1
-  CapacitorFilesystem: 37fb3aa5c945b4539ab11c74a5c57925a302bf24
-  CapacitorStorage: 63255170c2f7e9f7363b3e5e015584e6d18f2969
-  CapawesomeCapacitorFilePicker: c80c30759ba48986ff34a2b51b23ac2babfd3774
-  MdocumentScanner: 1dc069492ab23c24edabfe4e7aca3dcc76b846db
+  CapacitorPreferences: e8284bf740cf8c6d3f25409af3c01df87dfeb5a1
+  CapawesomeCapacitorFilePicker: abd66735806935246403855cbe62fee8e299cdc5
 
-PODFILE CHECKSUM: e33252400ba2afe0ecbac964c374acae875b0c99
+PODFILE CHECKSUM: 185bcdf6e861585be7691b9e6958a601440c3d54
 
 COCOAPODS: 1.15.2

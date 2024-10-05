@@ -77,7 +77,6 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
       }
     }
   };
-
   // Scan Document - jpeg
   const scanDocument = async () => {
     if (Capacitor.isNativePlatform()) {
@@ -85,7 +84,9 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
         const { DocumentScanner } = await import('capacitor-document-scanner');
         const scan = await DocumentScanner.scanDocument();
         console.log('scan: ', scan);
-        handleFileChange(scan.scannedImages[0]);
+        const fixeUrl = Capacitor.convertFileSrc(scan.scannedImages[0]);
+        console.log('fixeUrl: ', fixeUrl);
+        handleFileChange(fixeUrl);
       } catch (error) {
         console.error('Error scanning document:', error);
       }
@@ -110,10 +111,10 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
         <p className='icon-label'>{inputConfig.icons.camera}</p>
       </div>
 
-      {/* <div style={{ cursor: 'pointer' }} onClick={scanDocument}>
+      <div style={{ cursor: 'pointer' }} onClick={scanDocument}>
         <Image src={scanIcon} alt="Scan" className="icon scan" width={40} height={40} />
         <p className='icon-label'>{inputConfig.icons.scan}</p>
-      </div> */}
+      </div>
     </div>
   );
 };

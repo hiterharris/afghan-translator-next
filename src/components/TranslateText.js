@@ -1,4 +1,3 @@
-import React from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
@@ -39,6 +38,8 @@ const TranslateText = () => {
   const handleTranslate = () => {
     translate(input);
   };
+
+  
 
   return (
     <div className="TranslateText">
