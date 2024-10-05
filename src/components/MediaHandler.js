@@ -9,7 +9,6 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import uploadIcon from "@/assets/icons/upload.png";
 import { FilePicker } from '@capawesome/capacitor-file-picker';
 import { languageConfig } from '@/constants/languageConfig';
-const piexif = require('piexifjs');
 
 const MediaHandler = ({ handleFileChange, inputLanguage }) => {
   const inputConfig = languageConfig[inputLanguage];
@@ -20,16 +19,7 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
     }
   }, []);
 
-  const stripExifData = (dataUrl) => {
-    try {
-      return piexif.remove(dataUrl);
-    } catch (error) {
-      console.error('Error stripping EXIF data:', error);
-      return dataUrl; // fallback to the original dataUrl if stripping fails
-    }
-  };
-
-  // File Picker
+  // File Picker - *
   const selectFile = async () => {
     try {
       const result = await FilePicker.pickFiles({
@@ -39,9 +29,9 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
       });
       if (result.files.length > 0) {
         const file = result.files[0];
-        const mimeType = file.mimeType || 'image/png'; // Dynamic MIME type
+        console.log('file: ', file);
+        const mimeType = file.mimeType || 'image/png';
         const dataUrl = `data:${mimeType};base64,${file.data}`;
-        // const dataUrl = `data:image/png;base64,${file.data}`;
         handleFileChange(dataUrl);
       }
     } catch (error) {
@@ -51,16 +41,17 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
     }
   };
 
-  // Photo Library
+  // Photo Library - png
   const selectPhoto = async () => {
     try {
       const photo = await Camera.getPhoto({
-        quality: 90,
+        quality: 100,
         source: CameraSource.Photos,
         resultType: CameraResultType.DataUrl,
       });
-      const strippedDataUrl = stripExifData(photo.dataUrl);
-      handleFileChange(strippedDataUrl);
+      console.log('photo: ', photo);
+      const dataUrl = photo.dataUrl;
+      handleFileChange(dataUrl);
     } catch (error) {
       if (error.message !== 'User cancelled photos app') {
         console.error('Error selecting photo:', error);
@@ -68,7 +59,7 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
     }
   };
 
-  // Camera
+  // Camera - png
   const openCamera = async () => {
     try {
       const photo = await Camera.getPhoto({
@@ -77,9 +68,9 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
         source: CameraSource.Camera,
         resultType: CameraResultType.DataUrl
       });
-      console.log('photo: ', photo);
-      const strippedDataUrl = stripExifData(photo.dataUrl);
-      handleFileChange(strippedDataUrl);
+      console.log('camera: ', photo);
+      const dataUrl = photo.dataUrl;
+      handleFileChange(dataUrl);
     } catch (error) {
       if (error.message !== 'User cancelled photos app') {
         console.error('Error taking photo:', error);
@@ -87,13 +78,14 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
     }
   };
 
-  // Scan Document
+  // Scan Document - jpeg
   const scanDocument = async () => {
     if (Capacitor.isNativePlatform()) {
       try {
         const { DocumentScanner } = await import('capacitor-document-scanner');
-        const result = await DocumentScanner.scanDocument();
-        handleFileChange(result.scannedImages[0]);
+        const scan = await DocumentScanner.scanDocument();
+        console.log('scan: ', scan);
+        handleFileChange(scan.scannedImages[0]);
       } catch (error) {
         console.error('Error scanning document:', error);
       }
