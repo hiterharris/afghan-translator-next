@@ -3,6 +3,7 @@ import apiConfig from '@/config/apiConfig';
 import { Dialog } from '@capacitor/dialog';
 import { languageConfig } from '@/constants/languageConfig';
 import DetectLanguage from 'detectlanguage';
+import { dari } from '@/assets/icons';
 
 const useTranslate = () => {
     const { endpoint } = apiConfig();
@@ -13,6 +14,7 @@ const useTranslate = () => {
     const [switched, setSwitched] = useState(true);
     const inputConfig = languageConfig[inputLanguage];
     const detectlanguage = new DetectLanguage(process.env.NEXT_PUBLIC_LANGUAGE_DETECT_API_KEY);
+    const translationStyle = "casual"; // casual, formal, idiomatic, literal
     
     useEffect(() => {
         setLoading(false)
@@ -26,8 +28,8 @@ const useTranslate = () => {
         });
     };
 
-    const validateInput = async (text) => {
-        if (text.trim() === '') {
+    const validateInput = async () => {
+        if (input.trim() === '') {
             await showAlert();
             return false;
         }
@@ -45,7 +47,7 @@ const useTranslate = () => {
         }
     };
     
-    const translate = async (input) => {
+    const translate = async () => {
         const isValid = await validateInput(input);
         if (isValid) {
             setLoading(true);
@@ -54,7 +56,8 @@ const useTranslate = () => {
                 method: 'POST',
                 body: JSON.stringify({
                     language: inputLanguage,
-                    text: input
+                    text: input,
+                    translationStyle: translationStyle
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',

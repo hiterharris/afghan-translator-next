@@ -17,3 +17,10 @@
     width: 36px;
     margin: 16px;
 }
+
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

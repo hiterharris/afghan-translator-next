@@ -1,4 +1,6 @@
 import useTranslate from "./useTranslate";
 import useOCR from "./useOCR";
+import useStorage from "./useStorage";
 
-export { useTranslate, useOCR };
+
+export { useTranslate, useOCR, useStorage };
