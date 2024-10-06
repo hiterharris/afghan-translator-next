@@ -1,15 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { TranslateText } from '../components';
 import { useStorage } from '../hooks';
 import { Device } from '@capacitor/device';
 
 export default function Home() {
-  const { setStorage } = useStorage();
+  const { user, setStorage } = useStorage();
+  const [moesifClick, setMoesifClick] = useState();
+
+  function handleTranslateClick(moesif) {
+    moesif.track('clicked_button', {
+      button_label: 'Translate'
+    });
+  }
 
   useEffect(() => {
-      Device.getId().then((info) => {
-        setStorage('user', { id: info?.identifier });
+    if (typeof window !== 'undefined') {
+      import('moesif-browser-js').then(moesif => {
+        moesif.init({
+          applicationId: process.env.NEXT_PUBLIC_MOESIF_APPLICATION_ID
+        });
+
+        console.log('user:', user);
+        moesif.identifyUser(user.id);
+
+        setMoesifClick(() => () => handleTranslateClick(moesif));
+      }).catch(error => {
+        console.error('Error loading moesif-browser-js:', error);
+      });
+    }
+  }, [user]);
+
+  useEffect(() => {
+      Device.getId().then((user) => {
+        setStorage('user', { id: user?.identifier });
       });
   }, []);
 
@@ -22,7 +46,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="App">
-        <TranslateText />
+        <TranslateText moesifClick={moesifClick} />
       </div>
     </>
   )

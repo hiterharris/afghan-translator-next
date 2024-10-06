@@ -19,7 +19,6 @@ const useStorage = () => {
     const getUser = async () => {
         try {
           const user = await getStorage('user');
-          console.log('user: ', user);
           setUser({id: user.id});
         } catch (error) {
           console.error('Error fetching user:', error);

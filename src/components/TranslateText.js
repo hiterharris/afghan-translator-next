@@ -6,7 +6,7 @@ import { useTranslate } from '../hooks';
 import { Button } from 'primereact/button';
 import { useOCR } from '../hooks';
 
-const TranslateText = () => {
+const TranslateText = ({ moesifClick }) => {  
   const {
     inputLanguage,
     setInputLanguage,
@@ -31,11 +31,13 @@ const TranslateText = () => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
+      moesifClick();
       translate(input, inputLanguage);
     }
   };
 
   const handleTranslate = () => {
+    moesifClick();
     translate(input);
   };
 
