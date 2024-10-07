@@ -24,8 +24,8 @@ const TranslateText = ({ moesifClick }) => {
 
   const { upload } = useOCR();
 
-  const handleFileChange = (dataUrl) => {
-    upload(dataUrl, setLoading, setInput, inputLanguage);
+  const handleFileChange = (file) => {
+    upload(file, setLoading, setInput);
   };
 
   const handleKeyDown = (e) => {

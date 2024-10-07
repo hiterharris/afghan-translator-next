@@ -3,7 +3,6 @@ import apiConfig from '@/config/apiConfig';
 import { Dialog } from '@capacitor/dialog';
 import { languageConfig } from '@/constants/languageConfig';
 import DetectLanguage from 'detectlanguage';
-import { dari } from '@/assets/icons';
 
 const useTranslate = () => {
     const { endpoint } = apiConfig();
