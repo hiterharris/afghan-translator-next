@@ -26,6 +26,7 @@
 }
 
 .output-buttons {
+    display: flex;
     position: fixed;
     bottom:23vh;
     right: 8vw;

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { writeToClipboard, getTTS } from '@/helpers';
 import SyncLoader from "react-spinners/SyncLoader";
 import { OutputButtons } from '@/components';
+import { saveTranslation } from '../utils/db';
+
 
 const override = {
   display: 'block',
@@ -14,6 +16,7 @@ const override = {
 const Output = ({ response, inputLanguage, loading }) => {
   const [isCopied, setIsCopied] = useState(false);
   const [isAudioLoading, setIsAudioLoading] = useState(false)
+  const [isStarred, setIsStarred] = useState(false);
 
   const handleSpeak = async () => {
     setIsAudioLoading(true);
@@ -46,6 +49,14 @@ const Output = ({ response, inputLanguage, loading }) => {
     return text;
   }
 
+  const handleStarClick = () => {
+    console.log('response: ', response)
+    if (!isStarred && response) {
+      saveTranslation(response);
+    }
+    setIsStarred(!isStarred);
+  };
+
   return (
     <div className='Output'>
       <SyncLoader
@@ -71,9 +82,10 @@ const Output = ({ response, inputLanguage, loading }) => {
           handleSpeak={handleSpeak}
           isCopied={isCopied}
           handleCopy={handleCopy}
+          handleStarClick={handleStarClick}
+          isStarred={isStarred}
         />
-      </div>
-      }
+      </div>}
     </div>
   );
 }

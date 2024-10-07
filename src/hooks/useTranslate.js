@@ -36,7 +36,7 @@ const useTranslate = () => {
         const languageDetected = await detectlanguage.detect(input).then(response => response[0]?.language);
 
         const isEnglish = inputLanguage === 'English' && languageDetected === 'en';
-        const isDari = inputLanguage === 'Dari' && languageDetected !== 'en';
+        const isDari = inputLanguage === 'Dari';
 
         if (isEnglish || isDari) {
             return true;

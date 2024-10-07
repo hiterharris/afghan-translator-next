@@ -5,6 +5,10 @@ PODS:
     - Capacitor
   - CapacitorClipboard (6.0.1):
     - Capacitor
+  - CapacitorCommunitySqlite (6.0.2):
+    - Capacitor
+    - SQLCipher
+    - ZIPFoundation
   - CapacitorCordova (6.1.2)
   - CapacitorDevice (6.0.1):
     - Capacitor
@@ -16,17 +20,32 @@ PODS:
     - Capacitor
   - CapawesomeCapacitorFilePicker (6.1.0):
     - Capacitor
+  - CordovaPlugins (6.1.2):
+    - CapacitorCordova
+  - SQLCipher (4.6.1):
+    - SQLCipher/standard (= 4.6.1)
+  - SQLCipher/common (4.6.1)
+  - SQLCipher/standard (4.6.1):
+    - SQLCipher/common
+  - ZIPFoundation (0.9.19)
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorCamera (from `../../node_modules/@capacitor/camera`)"
   - "CapacitorClipboard (from `../../node_modules/@capacitor/clipboard`)"
+  - "CapacitorCommunitySqlite (from `../../node_modules/@capacitor-community/sqlite`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorDevice (from `../../node_modules/@capacitor/device`)"
   - "CapacitorDialog (from `../../node_modules/@capacitor/dialog`)"
   - CapacitorDocumentScanner (from `../../node_modules/capacitor-document-scanner`)
   - "CapacitorPreferences (from `../../node_modules/@capacitor/preferences`)"
   - "CapawesomeCapacitorFilePicker (from `../../node_modules/@capawesome/capacitor-file-picker`)"
+  - CordovaPlugins (from `../capacitor-cordova-ios-plugins`)
+
+SPEC REPOS:
+  trunk:
+    - SQLCipher
+    - ZIPFoundation
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -35,6 +54,8 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/camera"
   CapacitorClipboard:
     :path: "../../node_modules/@capacitor/clipboard"
+  CapacitorCommunitySqlite:
+    :path: "../../node_modules/@capacitor-community/sqlite"
   CapacitorCordova:
     :path: "../../node_modules/@capacitor/ios"
   CapacitorDevice:
@@ -47,18 +68,24 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/preferences"
   CapawesomeCapacitorFilePicker:
     :path: "../../node_modules/@capawesome/capacitor-file-picker"
+  CordovaPlugins:
+    :path: "../capacitor-cordova-ios-plugins"
 
 SPEC CHECKSUMS:
   Capacitor: 679f9673fdf30597493a6362a5d5bf233d46abc2
   CapacitorCamera: ed022171dbf3853e68eec877b4d78995378af6b7
   CapacitorClipboard: 756cd7e83e8d5d19b0c74f40b57517c287bd5fe2
+  CapacitorCommunitySqlite: 47dab3a2d9a9581a0fe7642cf9cffd34c5d5b358
   CapacitorCordova: f48c89f96c319101cd2f0ce8a2b7449b5fb8b3dd
   CapacitorDevice: 7097a1deb4224b77fd13a6e60a355d0062a5d772
   CapacitorDialog: ad752191fdb22a8d0ac199b0754b8a021d86dbf9
   CapacitorDocumentScanner: 91258121abad1becc90936f85ad0fff4146e50b1
   CapacitorPreferences: e8284bf740cf8c6d3f25409af3c01df87dfeb5a1
   CapawesomeCapacitorFilePicker: abd66735806935246403855cbe62fee8e299cdc5
+  CordovaPlugins: bdb52b4007b696d6c1f9b65836de68112b715c67
+  SQLCipher: 77fbe633cd84db04b07876dd50766b4924b57d61
+  ZIPFoundation: b8c29ea7ae353b309bc810586181fd073cb3312c
 
-PODFILE CHECKSUM: 185bcdf6e861585be7691b9e6958a601440c3d54
+PODFILE CHECKSUM: 3fe64c8802e679ea4250b43fcf8f0cbd5357ac5d
 
 COCOAPODS: 1.15.2

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
@@ -5,8 +6,10 @@ import MediaHandler from './MediaHandler';
 import { useTranslate } from '../hooks';
 import { Button } from 'primereact/button';
 import { useOCR } from '../hooks';
+import { useRouter } from 'next/router';
 
-const TranslateText = ({ moesifClick }) => {  
+const TranslateText = ({ moesifClick }) => {
+  const router = useRouter();
   const {
     inputLanguage,
     setInputLanguage,
@@ -21,7 +24,6 @@ const TranslateText = ({ moesifClick }) => {
     reset,
     inputConfig
   } = useTranslate();
-
   const { upload } = useOCR();
 
   const handleFileChange = (file) => {
@@ -61,6 +63,7 @@ const TranslateText = ({ moesifClick }) => {
         handleKeyDown={handleKeyDown}
       />
       <Output response={response} inputLanguage={inputLanguage} loading={loading} />
+      <Button label="View Saved Translations" onClick={() => router.push('/saved-translations')} />
       <Button
         className="translate-button"
         label={inputConfig.translate}
