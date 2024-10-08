@@ -16,26 +16,22 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      import('moesif-browser-js').then(moesif => {
-        moesif.init({
-          applicationId: process.env.NEXT_PUBLIC_MOESIF_APPLICATION_ID
+      Device.getId().then((user) => {
+        import('moesif-browser-js').then(moesif => {
+          moesif.init({
+            applicationId: process.env.NEXT_PUBLIC_MOESIF_APPLICATION_ID
+          });
+  
+          user?.identifier && moesif.identifyUser(user?.identifier)
+          console.log('Moesif initialized with user:', user)
+  
+          setMoesifClick(() => () => handleTranslateClick(moesif));
+        }).catch(error => {
+          console.error('Error loading moesif-browser-js:', error);
         });
-
-        console.log('user:', user);
-        moesif.identifyUser(user.id);
-
-        setMoesifClick(() => () => handleTranslateClick(moesif));
-      }).catch(error => {
-        console.error('Error loading moesif-browser-js:', error);
       });
     }
   }, [user]);
-
-  useEffect(() => {
-      Device.getId().then((user) => {
-        setStorage('user', { id: user?.identifier });
-      });
-  }, []);
 
   return (
     <>
