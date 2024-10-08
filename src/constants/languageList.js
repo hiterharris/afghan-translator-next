@@ -1,4 +1,4 @@
-import { english, dari, swap } from "@/assets/icons";
+import { english, dari, swap } from "../assets/icons";
 
 export const languageList = [
     {
