@@ -22,10 +22,10 @@ const TranslateText = ({ moesifClick }) => {
     inputConfig
   } = useTranslate();
 
-  const { upload } = useOCR();
+  const { isUploading, upload } = useOCR();
 
   const handleFileChange = (file) => {
-    upload(file, setLoading, setInput);
+    upload(file, setInput);
   };
 
   const handleKeyDown = (e) => {
@@ -59,6 +59,7 @@ const TranslateText = ({ moesifClick }) => {
         switched={switched}
         reset={reset}
         handleKeyDown={handleKeyDown}
+        isUploading={isUploading}
       />
       <Output response={response} inputLanguage={inputLanguage} loading={loading} />
       <Button
@@ -67,7 +68,10 @@ const TranslateText = ({ moesifClick }) => {
         icon="pi pi-check"
         onClick={handleTranslate}
       />
-      <MediaHandler handleFileChange={handleFileChange} inputLanguage={inputLanguage} />
+      <MediaHandler
+        handleFileChange={handleFileChange}
+        inputLanguage={inputLanguage}
+      />
     </div>
   );
 };
