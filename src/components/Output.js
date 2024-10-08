@@ -13,15 +13,15 @@ const override = {
 
 const Output = ({ response, inputLanguage, loading }) => {
   const [isCopied, setIsCopied] = useState(false);
-  const [isAudioLoading, setIsAudioLoading] = useState(false);
+  const [isAudioLoading, setIsAudioLoading] = useState(false)
 
   const handleSpeak = async () => {
     setIsAudioLoading(true);
     let text = '';
     if (inputLanguage === 'Dari') {
-      text = response?.latin;
+      text = response?.english;
     } else if (inputLanguage === 'English') {
-      text = response?.arabic;
+      text = response?.dari;
     }
     const tts = getTTS(inputLanguage, text);
     await tts && setIsAudioLoading(false);
@@ -39,9 +39,9 @@ const Output = ({ response, inputLanguage, loading }) => {
   const clipboard = () => {
     let text = '';
     if (inputLanguage === 'Dari') {
-      text = response?.latin;
+      text = response?.english;
     } else if (inputLanguage === 'English') {
-      text = response?.arabic;
+      text = response?.dari;
     }
     return text;
   }
@@ -54,8 +54,16 @@ const Output = ({ response, inputLanguage, loading }) => {
         cssOverride={override}
         aria-label="Loading Spinner"
       />
-      {inputLanguage === 'English' && <p className='output-text-dari'>{response?.arabic}</p>}
-      <p className='output-text'>{response?.latin}</p>
+      <div>
+        {inputLanguage === 'Dari' ? (
+          <p className='output-text'>{response?.english}</p>
+        ) : (
+          <>
+            <p className='output-text-dari'>{response?.dari}</p>
+            <p className='output-text'>{response?.denglish}</p>
+          </>
+        )}
+      </div>
       {response && 
       <div className='output-buttons'>
         <OutputButtons

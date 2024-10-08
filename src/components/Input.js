@@ -3,6 +3,16 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import { languageConfig } from '../constants/languageConfig';
 import Image from 'next/image';
 import refresh from '../assets/icons/refresh.png';
+import SyncLoader from "react-spinners/SyncLoader";
+
+const override = {
+  display: 'block',
+  position: 'absolute',
+  top: '30%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  zIndex: 1
+};
 
 const Input = ({
   input,
@@ -10,7 +20,8 @@ const Input = ({
   inputLanguage,
   switched,
   reset,
-  handleKeyDown
+  handleKeyDown,
+  isUploading
 }) => {
   const [count, setCount] = useState(0);
   const inputConfig = languageConfig[inputLanguage];
@@ -26,6 +37,12 @@ const Input = ({
 
   return (
     <div className='Input'>
+      <SyncLoader
+        color="#504ED8"
+        loading={isUploading}
+        cssOverride={override}
+        aria-label="Loading Spinner"
+      />
       <span className={`p-float-label input-textarea ${switched && 'right'}`}>
         <InputTextarea
           value={input}
