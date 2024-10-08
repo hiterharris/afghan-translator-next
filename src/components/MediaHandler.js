@@ -1,12 +1,8 @@
 import React, { useEffect } from 'react';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
-import { Capacitor } from '@capacitor/core';
 import Image from 'next/image';
-import cameraIcon from "@/assets/icons/camera.png";
-import photoLibraryIcon from "@/assets/icons/photos.png";
-import scanIcon from "@/assets/icons/scan.png";
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-import uploadIcon from "@/assets/icons/upload.png";
+import { fileIcon, photoLibraryIcon, cameraIcon } from "@/assets/icons";
 import { FilePicker } from '@capawesome/capacitor-file-picker';
 import { languageConfig } from '@/constants/languageConfig';
 
@@ -19,7 +15,7 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
     }
   }, []);
 
-  // File Picker - *
+  // File Picker
   const selectFile = async () => {
     try {
       const result = await FilePicker.pickFiles({
@@ -29,7 +25,6 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
       });
       if (result.files.length > 0) {
         const file = result.files[0];
-        console.log('file: ', file);
         const mimeType = file.mimeType || 'image/png';
         const dataUrl = `data:${mimeType};base64,${file.data}`;
         handleFileChange(dataUrl);
@@ -41,7 +36,7 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
     }
   };
 
-  // Photo Library - png
+  // Photo Library
   const selectPhoto = async () => {
     try {
       const photo = await Camera.getPhoto({
@@ -49,7 +44,6 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
         source: CameraSource.Photos,
         resultType: CameraResultType.DataUrl,
       });
-      console.log('photo: ', photo);
       const dataUrl = photo.dataUrl;
       handleFileChange(dataUrl);
     } catch (error) {
@@ -59,7 +53,7 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
     }
   };
 
-  // Camera - png
+  // Camera
   const openCamera = async () => {
     try {
       const photo = await Camera.getPhoto({
@@ -68,7 +62,6 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
         source: CameraSource.Camera,
         resultType: CameraResultType.DataUrl
       });
-      console.log('camera: ', photo);
       const dataUrl = photo.dataUrl;
       handleFileChange(dataUrl);
     } catch (error) {
@@ -77,28 +70,11 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
       }
     }
   };
-  // Scan Document - jpeg
-  const scanDocument = async () => {
-    if (Capacitor.isNativePlatform()) {
-      try {
-        const { DocumentScanner } = await import('capacitor-document-scanner');
-        const scan = await DocumentScanner.scanDocument();
-        console.log('scan: ', scan);
-        const fixeUrl = Capacitor.convertFileSrc(scan.scannedImages[0]);
-        console.log('fixeUrl: ', fixeUrl);
-        handleFileChange(fixeUrl);
-      } catch (error) {
-        console.error('Error scanning document:', error);
-      }
-    } else {
-      console.error('Document scanning is not supported on the web.');
-    }
-  };
 
   return (
     <div className="media-handler">
       <div style={{ cursor: 'pointer' }} onClick={selectFile}>
-        <Image src={uploadIcon} alt="File" className="icon file" width={40} height={40} />
+        <Image src={fileIcon} alt="File" className="icon file" width={40} height={40} />
         <p className='icon-label'>{inputConfig.icons.file}</p>
       </div>
       <div style={{ cursor: 'pointer' }} onClick={selectPhoto}>
@@ -109,11 +85,6 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
       <div style={{ cursor: 'pointer' }} onClick={openCamera}>
         <Image src={cameraIcon} alt="Camera" className="icon camera" width={40} height={40} />
         <p className='icon-label'>{inputConfig.icons.camera}</p>
-      </div>
-
-      <div style={{ cursor: 'pointer' }} onClick={scanDocument}>
-        <Image src={scanIcon} alt="Scan" className="icon scan" width={40} height={40} />
-        <p className='icon-label'>{inputConfig.icons.scan}</p>
       </div>
     </div>
   );
