@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { writeToClipboard, getTTS } from '@/helpers';
+import { writeToClipboard, getTTS } from '../helpers';
 import SyncLoader from "react-spinners/SyncLoader";
-import { OutputButtons } from '@/components';
+import { OutputButtons } from '../components';
 
 const override = {
   display: 'block',

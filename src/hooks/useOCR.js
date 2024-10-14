@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import apiConfig from '@/config/apiConfig';
+import apiConfig from '../config/apiConfig';
 
 const useOCR = () => {
     const { endpoint } = apiConfig();

@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import Image from 'next/image';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-import { fileIcon, photoLibraryIcon, cameraIcon } from "@/assets/icons";
+import { fileIcon, photoLibraryIcon, cameraIcon } from "../assets/icons";
 import { FilePicker } from '@capawesome/capacitor-file-picker';
-import { languageConfig } from '@/constants/languageConfig';
+import { languageConfig } from '../constants/languageConfig';
 
 const MediaHandler = ({ handleFileChange, inputLanguage }) => {
   const inputConfig = languageConfig[inputLanguage];

@@ -1,35 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
-import { TranslateText } from '../components';
-import { useStorage } from '../hooks';
-import { Device } from '@capacitor/device';
+import { TranslateText, WelcomePage } from '../components';
+import { useUser, SignedIn, SignedOut } from '@clerk/nextjs';
 
 export default function Home() {
-  const { user, setStorage } = useStorage();
-  const [moesifClick, setMoesifClick] = useState();
-
-  function handleTranslateClick(moesif) {
-    moesif.track('clicked_button', {
-      button_label: 'Translate'
-    });
-  }
+  const { user } = useUser();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      Device.getId().then((user) => {
-        import('moesif-browser-js').then(moesif => {
+      import('moesif-browser-js')
+        .then((moesif) => {
           moesif.init({
-            applicationId: process.env.NEXT_PUBLIC_MOESIF_APPLICATION_ID
+            applicationId: process.env.NEXT_PUBLIC_MOESIF_APPLICATION_ID,
           });
-  
-          user?.identifier && moesif.identifyUser(user?.identifier)
-          console.log('Moesif initialized with user:', user)
-  
-          setMoesifClick(() => () => handleTranslateClick(moesif));
-        }).catch(error => {
+          moesif.identifyUser(user.id);
+        })
+        .catch((error) => {
           console.error('Error loading moesif-browser-js:', error);
         });
-      });
     }
   }, [user]);
 
@@ -42,8 +30,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="App">
-        <TranslateText moesifClick={moesifClick} />
+        <SignedOut>
+          <WelcomePage />
+        </SignedOut>
+        <SignedIn>
+          <TranslateText />
+        </SignedIn>
       </div>
     </>
-  )
+  );
 }

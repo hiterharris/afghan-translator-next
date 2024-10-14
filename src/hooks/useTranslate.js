@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import apiConfig from '@/config/apiConfig';
+import apiConfig from '../config/apiConfig';
 import { Dialog } from '@capacitor/dialog';
-import { languageConfig } from '@/constants/languageConfig';
+import { languageConfig } from '../constants/languageConfig';
 import DetectLanguage from 'detectlanguage';
 
 const useTranslate = () => {
