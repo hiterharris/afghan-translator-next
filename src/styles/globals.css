@@ -10,27 +10,13 @@ html, body {
   overflow-x: hidden;
 }
 
-.cl-internal-nfscg9 {
+.cl-userButton-root {
   position: absolute;
   right: 0;
   margin: 12px;
 }
 
-.cl-internal-1j7ahlv {
+.cl-userButtonAvatarBox {
   width: 42px;
   height: 42px;
-}
-
-button {
-  height: 64px;
-  width: 175px;
-  border: none;
-  border-radius: 10px;
-  background: #504ED8;
-  color: white;
-  font-weight: 500;
-  font-size: 18px;
-  padding: 12px;
-  text-align: center;
-  margin: 16px;
 }

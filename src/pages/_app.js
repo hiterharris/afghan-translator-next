@@ -7,23 +7,17 @@ import '../styles/Languages.css'
 import '../styles/MediaHandler.css'
 import {
   ClerkProvider,
-  SignInButton,
-  SignUpButton,
   SignedIn,
   SignedOut,
-  UserButton
+  UserButton,
+  RedirectToSignIn
 } from '@clerk/nextjs'
-import '../styles/globals.css'
 
 export default function App({ Component, pageProps }) {
   return (
     <ClerkProvider>
       <SignedOut>
-        <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', alignItems: 'center', justifyContent: 'center' }}>
-        <SignInButton />
-        <SignUpButton />
-        </div>
-
+        <RedirectToSignIn />
       </SignedOut>
       <SignedIn>
         <UserButton />
