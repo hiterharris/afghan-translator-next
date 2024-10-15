@@ -7,12 +7,13 @@ import { Device } from '@capacitor/device';
 export default function Home() {
   const { user, setStorage } = useStorage();
   const [moesifClick, setMoesifClick] = useState();
+  const [darkMode, setDarkMode] = useState(true);
 
   function handleTranslateClick(moesif) {
     moesif.track('clicked_button', {
       button_label: 'Translate'
     });
-  }
+  };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -41,8 +42,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="App">
-        <TranslateText moesifClick={moesifClick} />
+      <div className={`App ${darkMode ? 'dark' : 'light'}`}>
+        <TranslateText moesifClick={moesifClick} darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
     </>
   )

@@ -4,11 +4,17 @@
     height: 24vh;
     border-radius: 20px;
     border: none;
-    background: lightgrey;
+    background-color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-bottom: 48px;
     overflow-y: scroll;
     font-size: 18px;
     line-height: 24px;
+  }
+
+ .dark .Output {
+    background-color: #3d363f;
+    color: white;
   }
 
 .output-text {

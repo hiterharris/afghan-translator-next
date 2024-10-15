@@ -1,12 +1,15 @@
+import { useEffect } from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
 import MediaHandler from './MediaHandler';
 import { useTranslate } from '../hooks';
 import { Button } from 'primereact/button';
+import Image from 'next/image';
 import { useOCR } from '../hooks';
+import { dark } from '../assets/icons';
 
-const TranslateText = ({ moesifClick }) => {  
+const TranslateText = ({ moesifClick, darkMode, setDarkMode }) => {  
   const {
     inputLanguage,
     setInputLanguage,
@@ -24,8 +27,13 @@ const TranslateText = ({ moesifClick }) => {
 
   const { isUploading, upload } = useOCR();
 
-  const handleFileChange = (file) => {
-    upload(file, setInput);
+  const handleFileChange = async (file) => {
+    upload(file, (updatedInput) => {
+      setInput(updatedInput);
+      if (file && input) {
+        translate(input, inputLanguage);
+      }
+    });
   };
 
   const handleKeyDown = (e) => {
@@ -38,8 +46,18 @@ const TranslateText = ({ moesifClick }) => {
 
   const handleTranslate = () => {
     moesifClick();
-    translate(input);
+    translate(input, inputLanguage);
   };
+
+  useEffect(() => {
+    if (input.length > 6) {
+      translate(input, inputLanguage);
+    }
+  }, [input, inputLanguage]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  }
 
   return (
     <div className="TranslateText">
@@ -60,8 +78,20 @@ const TranslateText = ({ moesifClick }) => {
         reset={reset}
         handleKeyDown={handleKeyDown}
         isUploading={isUploading}
+        darkMode={darkMode}
       />
-      <Output response={response} inputLanguage={inputLanguage} loading={loading} />
+      <Output
+        response={response}
+        inputLanguage={inputLanguage}
+        loading={loading}
+        darkMode={darkMode}
+      />
+      <Image
+        src={dark}
+        alt="dark mode toggle"
+        className="toggle-dark"
+        onClick={toggleDarkMode}
+      />
       <Button
         className="translate-button"
         label={inputConfig.translate}
