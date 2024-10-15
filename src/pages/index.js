@@ -3,8 +3,6 @@ import Head from 'next/head';
 import { TranslateText } from '../components';
 import { useStorage } from '../hooks';
 import { Device } from '@capacitor/device';
-import { Button } from 'primereact/button';
-import Image from 'next/image';
 
 export default function Home() {
   const { user, setStorage } = useStorage();
@@ -16,13 +14,6 @@ export default function Home() {
       button_label: 'Translate'
     });
   };
-
-// import { dark } from '../assets/icons';
-// const [darkMode, setDarkMod] = useState(false);
-
-//   const toggleDarkMode = () => {
-//     setDarkMod(!darkMode);
-//   }
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -52,12 +43,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={`App ${darkMode ? 'dark' : 'light'}`}>
-        {/* <Image
-            src={dark}
-            alt="dark mode toggle"
-            className="toggle-dark"
-            onClick={toggleDarkMode}
-          /> */}
         <TranslateText moesifClick={moesifClick} darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
     </>
