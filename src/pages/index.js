@@ -7,7 +7,7 @@ import { Device } from '@capacitor/device';
 export default function Home() {
   const { user, setStorage } = useStorage();
   const [moesifClick, setMoesifClick] = useState();
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   function handleTranslateClick(moesif) {
     moesif.track('clicked_button', {
