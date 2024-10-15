@@ -30,6 +30,9 @@ const TranslateText = ({ moesifClick, darkMode, setDarkMode }) => {
   const handleFileChange = async (file) => {
     upload(file, (updatedInput) => {
       setInput(updatedInput);
+      if (file && input) {
+        translate(input, inputLanguage);
+      }
     });
   };
 
@@ -47,7 +50,7 @@ const TranslateText = ({ moesifClick, darkMode, setDarkMode }) => {
   };
 
   useEffect(() => {
-    if (input) {
+    if (input.length > 6) {
       translate(input, inputLanguage);
     }
   }, [input, inputLanguage]);
