@@ -21,7 +21,8 @@ const Input = ({
   switched,
   reset,
   handleKeyDown,
-  isUploading
+  isUploading,
+  darkMode
 }) => {
   const [count, setCount] = useState(0);
   const inputConfig = languageConfig[inputLanguage];
@@ -50,7 +51,7 @@ const Input = ({
           onKeyDown={handleKeyDown}
           placeholder={inputConfig.placeholder}
           maxLength={1200}
-          className={`${switched && 'right'}`}
+          className={`${switched && 'right'} ${darkMode ? 'dark' : 'light'}`}
         />
         <div className='input-info'>
           <div className='character-count'>{count}/1200</div>

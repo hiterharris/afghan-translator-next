@@ -3,10 +3,12 @@ import Head from 'next/head';
 import { TranslateText } from '../components';
 import { useStorage } from '../hooks';
 import { Device } from '@capacitor/device';
+import { Button } from 'primereact/button';
 
 export default function Home() {
   const { user, setStorage } = useStorage();
   const [moesifClick, setMoesifClick] = useState();
+  const [darkMode, setDarkMod] = useState(false);
 
   function handleTranslateClick(moesif) {
     moesif.track('clicked_button', {
@@ -41,8 +43,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="App">
-        <TranslateText moesifClick={moesifClick} />
+      <div className={`App ${darkMode ? 'dark' : 'light'}`}>
+        <Button label="Toggle Dark Mode" onClick={() => setDarkMod(!darkMode)} />
+        <TranslateText moesifClick={moesifClick} darkMode={darkMode} />
       </div>
     </>
   )

@@ -7,7 +7,7 @@ import { useTranslate } from '../hooks';
 import { Button } from 'primereact/button';
 import { useOCR } from '../hooks';
 
-const TranslateText = ({ moesifClick }) => {  
+const TranslateText = ({ moesifClick, darkMode }) => {  
   const {
     inputLanguage,
     setInputLanguage,
@@ -69,8 +69,14 @@ const TranslateText = ({ moesifClick }) => {
         reset={reset}
         handleKeyDown={handleKeyDown}
         isUploading={isUploading}
+        darkMode={darkMode}
       />
-      <Output response={response} inputLanguage={inputLanguage} loading={loading} />
+      <Output
+        response={response}
+        inputLanguage={inputLanguage}
+        loading={loading}
+        darkMode={darkMode}
+      />
       <Button
         className="translate-button"
         label={inputConfig.translate}

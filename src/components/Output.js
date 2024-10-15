@@ -11,7 +11,7 @@ const override = {
   transform: 'translate(-50%, -50%)'
 };
 
-const Output = ({ response, inputLanguage, loading }) => {
+const Output = ({ response, inputLanguage, loading, darkMode }) => {
   const [isCopied, setIsCopied] = useState(false);
   const [isAudioLoading, setIsAudioLoading] = useState(false)
 
@@ -47,7 +47,7 @@ const Output = ({ response, inputLanguage, loading }) => {
   }
 
   return (
-    <div className='Output'>
+    <div className={`Output ${darkMode ? 'dark' : 'light'}`}>
       <SyncLoader
         color="#504ED8"
         loading={loading}
