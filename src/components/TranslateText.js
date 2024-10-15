@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
@@ -24,8 +25,10 @@ const TranslateText = ({ moesifClick }) => {
 
   const { isUploading, upload } = useOCR();
 
-  const handleFileChange = (file) => {
-    upload(file, setInput);
+  const handleFileChange = async (file) => {
+    upload(file, (updatedInput) => {
+      setInput(updatedInput);
+    });
   };
 
   const handleKeyDown = (e) => {
@@ -38,8 +41,14 @@ const TranslateText = ({ moesifClick }) => {
 
   const handleTranslate = () => {
     moesifClick();
-    translate(input);
+    translate(input, inputLanguage);
   };
+
+  useEffect(() => {
+    if (input) {
+      translate(input, inputLanguage);
+    }
+  }, [input, inputLanguage]);
 
   return (
     <div className="TranslateText">
