@@ -124,6 +124,7 @@ textarea {
 }
 
 .toggle-dark {
+  display: none;
   width: 36px;
   height: 36px;
   position: absolute;
