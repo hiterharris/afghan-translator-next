@@ -2,7 +2,7 @@
     width: 80vw;
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 32px;
 }
 
 .icon {
@@ -10,7 +10,7 @@
 }
 
 .icon-label {
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 4px;
     color: #504ED8;
 }
