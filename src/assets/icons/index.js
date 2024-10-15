@@ -10,5 +10,6 @@ import scan from './scan.png';
 import fileIcon from './file.png';
 import photoLibraryIcon from './photos.png';
 import cameraIcon from './camera.png';
+import dark from './dark.png';
 
-export { english, dari, swap, copy, check, speech, play, pause, scan, fileIcon, photoLibraryIcon, cameraIcon };
+export { english, dari, swap, copy, check, speech, play, pause, scan, fileIcon, photoLibraryIcon, cameraIcon, dark };

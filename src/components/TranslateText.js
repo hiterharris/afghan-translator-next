@@ -5,9 +5,11 @@ import Output from './Output';
 import MediaHandler from './MediaHandler';
 import { useTranslate } from '../hooks';
 import { Button } from 'primereact/button';
+import Image from 'next/image';
 import { useOCR } from '../hooks';
+import { dark } from '../assets/icons';
 
-const TranslateText = ({ moesifClick, darkMode }) => {  
+const TranslateText = ({ moesifClick, darkMode, setDarkMode }) => {  
   const {
     inputLanguage,
     setInputLanguage,
@@ -50,6 +52,10 @@ const TranslateText = ({ moesifClick, darkMode }) => {
     }
   }, [input, inputLanguage]);
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  }
+
   return (
     <div className="TranslateText">
       <Languages
@@ -76,6 +82,12 @@ const TranslateText = ({ moesifClick, darkMode }) => {
         inputLanguage={inputLanguage}
         loading={loading}
         darkMode={darkMode}
+      />
+      <Image
+        src={dark}
+        alt="dark mode toggle"
+        className="toggle-dark"
+        onClick={toggleDarkMode}
       />
       <Button
         className="translate-button"

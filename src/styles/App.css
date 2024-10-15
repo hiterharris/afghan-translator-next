@@ -119,7 +119,14 @@ textarea {
   margin-bottom: 10px;
 }
 
-
 .PrivacyPolicy strong {
   font-weight: bold;
+}
+
+.toggle-dark {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: 32px;
+  right: 8px;
 }

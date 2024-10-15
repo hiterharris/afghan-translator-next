@@ -4,17 +4,25 @@ import { TranslateText } from '../components';
 import { useStorage } from '../hooks';
 import { Device } from '@capacitor/device';
 import { Button } from 'primereact/button';
+import Image from 'next/image';
 
 export default function Home() {
   const { user, setStorage } = useStorage();
   const [moesifClick, setMoesifClick] = useState();
-  const [darkMode, setDarkMod] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   function handleTranslateClick(moesif) {
     moesif.track('clicked_button', {
       button_label: 'Translate'
     });
-  }
+  };
+
+// import { dark } from '../assets/icons';
+// const [darkMode, setDarkMod] = useState(false);
+
+//   const toggleDarkMode = () => {
+//     setDarkMod(!darkMode);
+//   }
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -44,8 +52,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={`App ${darkMode ? 'dark' : 'light'}`}>
-        <Button label="Toggle Dark Mode" onClick={() => setDarkMod(!darkMode)} />
-        <TranslateText moesifClick={moesifClick} darkMode={darkMode} />
+        {/* <Image
+            src={dark}
+            alt="dark mode toggle"
+            className="toggle-dark"
+            onClick={toggleDarkMode}
+          /> */}
+        <TranslateText moesifClick={moesifClick} darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
     </>
   )
