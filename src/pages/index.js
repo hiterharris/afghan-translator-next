@@ -6,27 +6,21 @@ import { Device } from '@capacitor/device';
 
 export default function Home() {
   const { user, setStorage } = useStorage();
-  const [moesifClick, setMoesifClick] = useState();
   const [darkMode, setDarkMode] = useState(true);
-
-  function handleTranslateClick(moesif) {
-    moesif.track('clicked_button', {
-      button_label: 'Translate'
-    });
-  };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      Device.getId().then((user) => {
+      Device.getId().then((device) => {
         import('moesif-browser-js').then(moesif => {
           moesif.init({
             applicationId: process.env.NEXT_PUBLIC_MOESIF_APPLICATION_ID
           });
-  
-          user?.identifier && moesif.identifyUser(user?.identifier)
-          console.log('Moesif initialized with user:', user)
-  
-          setMoesifClick(() => () => handleTranslateClick(moesif));
+
+          if (device) {
+            moesif.identifyUser(device?.identifier);
+            setStorage('user', { id: device?.identifier });
+          }
+
         }).catch(error => {
           console.error('Error loading moesif-browser-js:', error);
         });
@@ -43,7 +37,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={`App ${darkMode ? 'dark' : 'light'}`}>
-        <TranslateText moesifClick={moesifClick} darkMode={darkMode} setDarkMode={setDarkMode} />
+        <TranslateText darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
     </>
   )

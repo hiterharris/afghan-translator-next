@@ -15,7 +15,6 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
     }
   }, []);
 
-  // File Picker
   const selectFile = async () => {
     try {
       const result = await FilePicker.pickFiles({
@@ -36,7 +35,6 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
     }
   };
 
-  // Photo Library
   const selectPhoto = async () => {
     try {
       const photo = await Camera.getPhoto({
@@ -53,7 +51,6 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
     }
   };
 
-  // Camera
   const openCamera = async () => {
     try {
       const photo = await Camera.getPhoto({
@@ -75,16 +72,15 @@ const MediaHandler = ({ handleFileChange, inputLanguage }) => {
     <div className="media-handler">
       <div style={{ cursor: 'pointer' }} onClick={selectFile}>
         <Image src={fileIcon} alt="File" className="icon file" width={40} height={40} />
-        <p className='icon-label'>{inputConfig.icons.file}</p>
+        {/* <p className='icon-label'>{inputConfig.icons.file}</p> */}
+      </div>
+      <div className="camera" style={{ cursor: 'pointer' }} onClick={openCamera}>
+        <Image src={cameraIcon} alt="Camera" className="icon" width={40} height={40} />
+        {/* <p className='icon-label'>{inputConfig.icons.camera}</p> */}
       </div>
       <div style={{ cursor: 'pointer' }} onClick={selectPhoto}>
         <Image src={photoLibraryIcon} alt="Photo Library" className="icon photo-library" width={40} height={40} />
-        <p className='icon-label'>{inputConfig.icons.photo}</p>
-      </div>
-
-      <div style={{ cursor: 'pointer' }} onClick={openCamera}>
-        <Image src={cameraIcon} alt="Camera" className="icon camera" width={40} height={40} />
-        <p className='icon-label'>{inputConfig.icons.camera}</p>
+        {/* <p className='icon-label'>{inputConfig.icons.photo}</p> */}
       </div>
     </div>
   );

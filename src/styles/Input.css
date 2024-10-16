@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
 }
 
 .input-textarea {
@@ -22,7 +21,7 @@
 
 .input-textarea textarea {
     width: 80vw;
-    height: 24vh;
+    height: 28vh;
     border-radius: 16px;
     font-size: 16px;
     padding: 16px 16px 32px;
@@ -67,6 +66,9 @@
 
 .reset {
     visibility: hidden;
+    position: absolute;
+    right: 4px;
+    bottom: 48px;
     height: 28px;
     width: 28px;
     margin: 8px;

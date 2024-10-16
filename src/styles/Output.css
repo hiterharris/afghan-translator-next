@@ -1,19 +1,18 @@
 .Output {
     position: relative;
     width: 80vw;
-    height: 24vh;
+    height: 28vh;
     border-radius: 20px;
     border: none;
     background-color: white;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-bottom: 48px;
     overflow-y: scroll;
-    font-size: 18px;
+    font-size: 24px;
     line-height: 24px;
   }
 
  .dark .Output {
-    background-color: #3d363f;
+    background-color: #292323;
     color: white;
   }
 
@@ -31,11 +30,17 @@
     padding: 16px;
 }
 
+.buttons-container {
+    position: absolute;
+    bottom: 12px;
+    right: 8px;
+}
+
 .output-buttons {
-    position: fixed;
-    bottom:23vh;
-    right: 8vw;
-    padding-top: 32px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    /* height: 90%; */
 }
 
 .copy {
@@ -53,3 +58,12 @@
     width: 24px;
     height: 24px;
 }
+
+.AudioButton {
+    display: flex;
+}
+
+.bookmark {
+    height: 24px;
+    width: 24px;
+  }

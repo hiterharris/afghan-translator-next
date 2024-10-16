@@ -8,6 +8,8 @@ const useTranslate = () => {
     const { endpoint } = apiConfig();
     const [inputLanguage, setInputLanguage] = useState('Dari');
     const [loading, setLoading] = useState(false);
+    const [isTyping, setIsTyping] = useState(false);
+    const [typingTimeout, setTypingTimeout] = useState(null);
     const [response, setResponse] = useState('');
     const [input, setInput] = useState('');
     const [switched, setSwitched] = useState(true);
@@ -35,21 +37,21 @@ const useTranslate = () => {
 
         const languageDetected = await detectlanguage.detect(input).then(response => response[0]?.language);
 
-        const isEnglish = inputLanguage === 'English' && languageDetected === 'en';
-        const isDari = inputLanguage === 'Dari' && languageDetected !== 'en';
-
+        const isEnglish = inputLanguage === 'English';
+        const isDari = inputLanguage === 'Dari';
+        
         if (isEnglish || isDari) {
             return true;
         } else {
-            await showAlert();
-            return false
+            setTimeout(() => showAlert(), 3000)
+            return false;
         }
     };
     
     const translate = async () => {
         const isValid = await validateInput(input);
         if (isValid) {
-            setLoading(true);
+            !loading && setLoading(true);
             fetch(`${endpoint}/translate`, {
                 mode: 'cors',
                 method: 'POST',
@@ -80,6 +82,18 @@ const useTranslate = () => {
         setInput('');
         setResponse('');
     };
+
+    useEffect(() => {
+        if (input.length >= 3) {
+            if (typingTimeout) {
+                clearTimeout(typingTimeout);
+            }
+            setIsTyping(true);
+            const timeout = setTimeout(() => setIsTyping(false), 3000);
+            setTypingTimeout(timeout);
+            translate();
+        }
+    }, [input]);
 
     return {
         inputLanguage,

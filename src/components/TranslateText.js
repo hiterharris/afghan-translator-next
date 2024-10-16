@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { useOCR } from '../hooks';
 import { dark } from '../assets/icons';
 
-const TranslateText = ({ moesifClick, darkMode, setDarkMode }) => {  
+const TranslateText = ({ darkMode, setDarkMode }) => {
   const {
     inputLanguage,
     setInputLanguage,
@@ -31,7 +31,7 @@ const TranslateText = ({ moesifClick, darkMode, setDarkMode }) => {
     upload(file, (updatedInput) => {
       setInput(updatedInput);
       if (file && input) {
-        translate(input, inputLanguage);
+        translate();
       }
     });
   };
@@ -39,25 +39,13 @@ const TranslateText = ({ moesifClick, darkMode, setDarkMode }) => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      moesifClick();
-      translate(input, inputLanguage);
+      translate();
     }
   };
-
-  const handleTranslate = () => {
-    moesifClick();
-    translate(input, inputLanguage);
-  };
-
-  useEffect(() => {
-    if (input.length > 6) {
-      translate(input, inputLanguage);
-    }
-  }, [input, inputLanguage]);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-  }
+  };
 
   return (
     <div className="TranslateText">
@@ -91,12 +79,6 @@ const TranslateText = ({ moesifClick, darkMode, setDarkMode }) => {
         alt="dark mode toggle"
         className="toggle-dark"
         onClick={toggleDarkMode}
-      />
-      <Button
-        className="translate-button"
-        label={inputConfig.translate}
-        icon="pi pi-check"
-        onClick={handleTranslate}
       />
       <MediaHandler
         handleFileChange={handleFileChange}

@@ -5,6 +5,7 @@ import '../styles/Input.css'
 import '../styles/Output.css'
 import '../styles/Languages.css'
 import '../styles/MediaHandler.css'
+import '../styles/Saved.css'
 
 export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />

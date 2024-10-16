@@ -9,11 +9,9 @@ const useOCR = () => {
     const upload = async (imageData, setInput) => {
         try {
             setIsUploading(true);
-
             const response = await axios.post(`${endpoint}/upload`, {
                 image_url: imageData,
             });
-            
             const extractedText = response.data;
             setInput(extractedText);
         } catch (error) {

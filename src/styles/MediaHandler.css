@@ -2,7 +2,8 @@
     width: 80vw;
     display: flex;
     justify-content: space-around;
-    margin-top: 32px;
+    align-items: center;
+    margin-top: 24px;
 }
 
 .icon {
@@ -13,4 +14,14 @@
     font-size: 14px;
     margin-top: 4px;
     color: #504ED8;
+}
+
+.camera {
+    background-color: #504ED8;
+    border-radius: 100%;
+    height: 64px;
+    width: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
