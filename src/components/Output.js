@@ -11,17 +11,17 @@ const override = {
   transform: 'translate(-50%, -50%)'
 };
 
-const Output = ({ response, inputLanguage, loading }) => {
+const Output = ({ response, inputLanguage, loading, darkMode }) => {
   const [isCopied, setIsCopied] = useState(false);
-  const [isAudioLoading, setIsAudioLoading] = useState(false);
+  const [isAudioLoading, setIsAudioLoading] = useState(false)
 
   const handleSpeak = async () => {
     setIsAudioLoading(true);
     let text = '';
     if (inputLanguage === 'Dari') {
-      text = response?.latin;
+      text = response?.english;
     } else if (inputLanguage === 'English') {
-      text = response?.arabic;
+      text = response?.dari;
     }
     const tts = getTTS(inputLanguage, text);
     await tts && setIsAudioLoading(false);
@@ -39,34 +39,44 @@ const Output = ({ response, inputLanguage, loading }) => {
   const clipboard = () => {
     let text = '';
     if (inputLanguage === 'Dari') {
-      text = response?.latin;
+      text = response?.english;
     } else if (inputLanguage === 'English') {
-      text = response?.arabic;
+      text = response?.dari;
     }
     return text;
   }
 
   return (
-    <div className='Output'>
-      <SyncLoader
-        color="#504ED8"
-        loading={loading}
-        cssOverride={override}
-        aria-label="Loading Spinner"
-      />
-      {inputLanguage === 'English' && <p className='output-text-dari'>{response?.arabic}</p>}
-      <p className='output-text'>{response?.latin}</p>
-      {response && 
-      <div className='output-buttons'>
-        <OutputButtons
-          isAudioLoading={isAudioLoading}
-          handleSpeak={handleSpeak}
-          isCopied={isCopied}
-          handleCopy={handleCopy}
+    <>
+      <div className={`Output ${darkMode ? 'dark' : 'light'}`}>
+        <SyncLoader
+          color="#504ED8"
+          loading={loading}
+          cssOverride={override}
+          aria-label="Loading Spinner"
         />
+        <div>
+          {inputLanguage === 'Dari' ? (
+            <p className='output-text'>{response?.english}</p>
+          ) : (
+            <>
+              <p className='output-text-dari'>{response?.dari}</p>
+              <p className='output-text'>{response?.denglish}</p>
+            </>
+          )}
+        </div>
       </div>
+      {response &&
+        <div className='output-buttons'>
+          <OutputButtons
+            isAudioLoading={isAudioLoading}
+            handleSpeak={handleSpeak}
+            isCopied={isCopied}
+            handleCopy={handleCopy}
+          />
+        </div>
       }
-    </div>
+    </>
   );
 }
 

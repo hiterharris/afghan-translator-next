@@ -1,34 +1,64 @@
 PODS:
   - Capacitor (6.1.2):
     - CapacitorCordova
+  - CapacitorCamera (6.0.2):
+    - Capacitor
   - CapacitorClipboard (6.0.1):
     - Capacitor
   - CapacitorCordova (6.1.2)
+  - CapacitorDevice (6.0.1):
+    - Capacitor
   - CapacitorDialog (6.0.1):
+    - Capacitor
+  - CapacitorDocumentScanner (2.0.0):
+    - Capacitor
+  - CapacitorPreferences (6.0.2):
+    - Capacitor
+  - CapawesomeCapacitorFilePicker (6.1.0):
     - Capacitor
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorCamera (from `../../node_modules/@capacitor/camera`)"
   - "CapacitorClipboard (from `../../node_modules/@capacitor/clipboard`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorDevice (from `../../node_modules/@capacitor/device`)"
   - "CapacitorDialog (from `../../node_modules/@capacitor/dialog`)"
+  - CapacitorDocumentScanner (from `../../node_modules/capacitor-document-scanner`)
+  - "CapacitorPreferences (from `../../node_modules/@capacitor/preferences`)"
+  - "CapawesomeCapacitorFilePicker (from `../../node_modules/@capawesome/capacitor-file-picker`)"
 
 EXTERNAL SOURCES:
   Capacitor:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorCamera:
+    :path: "../../node_modules/@capacitor/camera"
   CapacitorClipboard:
     :path: "../../node_modules/@capacitor/clipboard"
   CapacitorCordova:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorDevice:
+    :path: "../../node_modules/@capacitor/device"
   CapacitorDialog:
     :path: "../../node_modules/@capacitor/dialog"
+  CapacitorDocumentScanner:
+    :path: "../../node_modules/capacitor-document-scanner"
+  CapacitorPreferences:
+    :path: "../../node_modules/@capacitor/preferences"
+  CapawesomeCapacitorFilePicker:
+    :path: "../../node_modules/@capawesome/capacitor-file-picker"
 
 SPEC CHECKSUMS:
   Capacitor: 679f9673fdf30597493a6362a5d5bf233d46abc2
+  CapacitorCamera: ed022171dbf3853e68eec877b4d78995378af6b7
   CapacitorClipboard: 756cd7e83e8d5d19b0c74f40b57517c287bd5fe2
   CapacitorCordova: f48c89f96c319101cd2f0ce8a2b7449b5fb8b3dd
+  CapacitorDevice: 7097a1deb4224b77fd13a6e60a355d0062a5d772
   CapacitorDialog: ad752191fdb22a8d0ac199b0754b8a021d86dbf9
+  CapacitorDocumentScanner: 91258121abad1becc90936f85ad0fff4146e50b1
+  CapacitorPreferences: e8284bf740cf8c6d3f25409af3c01df87dfeb5a1
+  CapawesomeCapacitorFilePicker: abd66735806935246403855cbe62fee8e299cdc5
 
-PODFILE CHECKSUM: 32c9a0f8cc87d4fc2c3718dadbc62fc4e5769cd4
+PODFILE CHECKSUM: 185bcdf6e861585be7691b9e6958a601440c3d54
 
 COCOAPODS: 1.15.2

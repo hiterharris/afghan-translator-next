@@ -1,10 +1,30 @@
 [
 	{
+		"pkg": "@capacitor/camera",
+		"classpath": "com.capacitorjs.plugins.camera.CameraPlugin"
+	},
+	{
 		"pkg": "@capacitor/clipboard",
 		"classpath": "com.capacitorjs.plugins.clipboard.ClipboardPlugin"
 	},
 	{
+		"pkg": "@capacitor/device",
+		"classpath": "com.capacitorjs.plugins.device.DevicePlugin"
+	},
+	{
 		"pkg": "@capacitor/dialog",
 		"classpath": "com.capacitorjs.plugins.dialog.DialogPlugin"
+	},
+	{
+		"pkg": "@capacitor/preferences",
+		"classpath": "com.capacitorjs.plugins.preferences.PreferencesPlugin"
+	},
+	{
+		"pkg": "@capawesome/capacitor-file-picker",
+		"classpath": "io.capawesome.capacitorjs.plugins.filepicker.FilePickerPlugin"
+	},
+	{
+		"pkg": "capacitor-document-scanner",
+		"classpath": "com.websitebeaver.capacitordocumentscanner.DocumentScannerPlugin"
 	}
 ]

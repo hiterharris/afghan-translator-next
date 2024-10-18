@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+      <!-- Access to UserDefaults for storing preferences -->
+      <dict>
+        <key>NSPrivacyAccessedAPIType</key>
+        <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+        <key>NSPrivacyAccessedAPITypeReasons</key>
+        <array>
+          <string>App needs to store user preferences for personalized settings.</string>
+        </array>
+      </dict>
+      <!-- Access to device disk space information -->
+      <dict>
+        <key>NSPrivacyAccessedAPIType</key>
+        <string>NSPrivacyAccessedAPICategoryDiskSpace</string>
+        <key>NSPrivacyAccessedAPITypeReasons</key>
+        <array>
+          <string>App checks available storage to optimize performance.</string>
+        </array>
+      </dict>
+    </array>
+  </dict>
+</plist>
