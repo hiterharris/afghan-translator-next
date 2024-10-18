@@ -5,7 +5,7 @@
     border-radius: 20px;
     border: none;
     background-color: white;
-    margin-bottom: 48px;
+    margin-bottom: 36px;
     overflow-y: scroll;
     font-size: 24px;
     line-height: 24px;
@@ -32,19 +32,17 @@
 
 .buttons-container {
     position: absolute;
-    bottom: 12px;
-    right: 8px;
+    /* bottom: 24px; */
+    right: 52px;
 }
 
 .output-buttons {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    /* height: 90%; */
 }
 
 .copy {
-    float: right;
     margin-top: 8px;
     margin-right: 16px;
     width: 24px;
@@ -52,7 +50,6 @@
 }
 
 .speaker {
-    float: right;
     margin-top: 8px;
     margin-right: 16px;
     width: 24px;

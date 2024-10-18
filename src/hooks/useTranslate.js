@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import apiConfig from '@/config/apiConfig';
 import { Dialog } from '@capacitor/dialog';
 import { languageConfig } from '@/constants/languageConfig';
@@ -16,6 +16,7 @@ const useTranslate = () => {
     const inputConfig = languageConfig[inputLanguage];
     const detectlanguage = new DetectLanguage(process.env.NEXT_PUBLIC_LANGUAGE_DETECT_API_KEY);
     const translationStyle = "casual"; // casual, formal, idiomatic, literal
+    const abortControllerRef = useRef(null);
     
     useEffect(() => {
         setLoading(false)
@@ -51,7 +52,9 @@ const useTranslate = () => {
     const translate = async () => {
         const isValid = await validateInput(input);
         if (isValid) {
+            setResponse('');
             !loading && setLoading(true);
+            abortControllerRef.current = new AbortController();
             fetch(`${endpoint}/translate`, {
                 mode: 'cors',
                 method: 'POST',
@@ -63,14 +66,19 @@ const useTranslate = () => {
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
+                signal: abortControllerRef.current.signal,
             })
             .then((response) => response.json())
             .then((data) => {
                 setResponse(JSON?.parse(data));
             })
             .catch((err) => {
-                console.error(err.message);
-                setResponse(inputConfig?.errorResponse);
+                if (err.name === 'AbortError') {
+                    console.log('Fetch aborted');
+                } else {
+                    console.error(err.message);
+                    setResponse(inputConfig?.errorResponse);
+                }
             })
             .finally(() => {
                 setLoading(false);
@@ -79,6 +87,9 @@ const useTranslate = () => {
     };
 
     const reset = () => {
+        if (abortControllerRef.current) {
+            abortControllerRef.current.abort();
+        }
         setInput('');
         setResponse('');
     };

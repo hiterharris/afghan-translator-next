@@ -47,34 +47,36 @@ const Output = ({ response, inputLanguage, loading, darkMode }) => {
   }
 
   return (
-    <div className={`Output ${darkMode ? 'dark' : 'light'}`}>
-      <SyncLoader
-        color="#504ED8"
-        loading={loading}
-        cssOverride={override}
-        aria-label="Loading Spinner"
-      />
-      <div>
-        {inputLanguage === 'Dari' ? (
-          <p className='output-text'>{response?.english}</p>
-        ) : (
-          <>
-            <p className='output-text-dari'>{response?.dari}</p>
-            <p className='output-text'>{response?.denglish}</p>
-          </>
-        )}
-      </div>
-      {response && 
-      <div className='output-buttons'>
-        <OutputButtons
-          isAudioLoading={isAudioLoading}
-          handleSpeak={handleSpeak}
-          isCopied={isCopied}
-          handleCopy={handleCopy}
+    <>
+      <div className={`Output ${darkMode ? 'dark' : 'light'}`}>
+        <SyncLoader
+          color="#504ED8"
+          loading={loading}
+          cssOverride={override}
+          aria-label="Loading Spinner"
         />
+        <div>
+          {inputLanguage === 'Dari' ? (
+            <p className='output-text'>{response?.english}</p>
+          ) : (
+            <>
+              <p className='output-text-dari'>{response?.dari}</p>
+              <p className='output-text'>{response?.denglish}</p>
+            </>
+          )}
+        </div>
       </div>
+      {response &&
+        <div className='output-buttons'>
+          <OutputButtons
+            isAudioLoading={isAudioLoading}
+            handleSpeak={handleSpeak}
+            isCopied={isCopied}
+            handleCopy={handleCopy}
+          />
+        </div>
       }
-    </div>
+    </>
   );
 }
 

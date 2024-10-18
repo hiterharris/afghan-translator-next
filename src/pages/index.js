@@ -6,7 +6,7 @@ import { Device } from '@capacitor/device';
 
 export default function Home() {
   const { user, setStorage } = useStorage();
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

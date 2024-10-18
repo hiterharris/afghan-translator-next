@@ -1,10 +1,8 @@
-import { useEffect } from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
 import MediaHandler from './MediaHandler';
 import { useTranslate } from '../hooks';
-import { Button } from 'primereact/button';
 import Image from 'next/image';
 import { useOCR } from '../hooks';
 import { dark } from '../assets/icons';
@@ -17,7 +15,6 @@ const TranslateText = ({ darkMode, setDarkMode }) => {
     setInput,
     translate,
     loading,
-    setLoading,
     response,
     switched,
     setSwitched,
@@ -59,7 +56,6 @@ const TranslateText = ({ darkMode, setDarkMode }) => {
         input={input}
         setInput={setInput}
         translate={translate}
-        setLoading={setLoading}
         inputLanguage={inputLanguage}
         inputConfig={inputConfig}
         switched={switched}

@@ -54,7 +54,7 @@ const Input = ({
           className={`${switched && 'right'} ${darkMode ? 'dark' : 'light'}`}
         />
         <div className='input-info'>
-          <div className='character-count'>{count}/1200</div>
+          {/* <div className='character-count'>{count}/1200</div> */}
           <Image
             src={refresh}
             alt=""
