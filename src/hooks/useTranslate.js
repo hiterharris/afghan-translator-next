@@ -100,9 +100,11 @@ const useTranslate = () => {
                 clearTimeout(typingTimeout);
             }
             setIsTyping(true);
-            const timeout = setTimeout(() => setIsTyping(false), 3000);
+            const timeout = setTimeout(() => {
+                setIsTyping(false);
+                translate();
+            }, 500);
             setTypingTimeout(timeout);
-            translate();
         }
     }, [input]);
 

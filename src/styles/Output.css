@@ -32,8 +32,7 @@
 
 .buttons-container {
     position: absolute;
-    /* bottom: 24px; */
-    right: 52px;
+    right: 42px;
 }
 
 .output-buttons {
@@ -63,4 +62,5 @@
 .bookmark {
     height: 24px;
     width: 24px;
+    display: none;
   }
