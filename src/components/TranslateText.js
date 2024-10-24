@@ -28,6 +28,7 @@ const TranslateText = ({ darkMode, setDarkMode }) => {
     upload(file, (updatedInput) => {
       setInput(updatedInput);
       if (file && input) {
+        setLoading(true);
         translate();
       }
     });
