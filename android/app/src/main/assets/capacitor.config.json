@@ -4,5 +4,13 @@
 	"webDir": "out",
 	"server": {
 		"androidScheme": "https"
+	},
+	"plugins": {
+		"Camera": {
+			"iosPermissions": {
+				"photos": "We need access to your photos to upload them.",
+				"camera": "We need access to your camera to take pictures."
+			}
+		}
 	}
 }

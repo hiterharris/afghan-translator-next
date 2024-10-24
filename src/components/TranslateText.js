@@ -1,65 +1,88 @@
-import React from 'react';
 import Languages from './Languages';
 import Input from './Input';
 import Output from './Output';
+import MediaHandler from './MediaHandler';
 import { useTranslate } from '../hooks';
-import { Button } from 'primereact/button';
+import Image from 'next/image';
+import { useOCR } from '../hooks';
+import { dark } from '../assets/icons';
 
-const TranslateText = () => {
-	const {
-		inputLanguage,
-		setInputLanguage,
-		input,
-		setInput,
-		translate,
-		loading,
-		setLoading,
-		response,
-		switched,
-		setSwitched,
-		reset,
-		inputConfig
-	} = useTranslate();
+const TranslateText = ({ darkMode, setDarkMode }) => {
+  const {
+    inputLanguage,
+    setInputLanguage,
+    input,
+    setInput,
+    translate,
+    loading,
+    response,
+    switched,
+    setSwitched,
+    reset,
+    inputConfig
+  } = useTranslate();
 
-	const handleTranslate = () => {
-		translate(input, inputLanguage);
-	};
+  const { isUploading, upload } = useOCR();
 
-	const handleKeyDown = (e) => {
-		if (e.key === 'Enter') {
-			e.preventDefault();
-			translate(input, inputLanguage);
-		}
-	};
+  const handleFileChange = async (file) => {
+    upload(file, (updatedInput) => {
+      setInput(updatedInput);
+      if (file && input) {
+        setLoading(true);
+        translate();
+      }
+    });
+  };
 
-	return (
-		<div className="TranslateText">
-			<Languages
-				setInputLanguage={setInputLanguage}
-				switched={switched}
-				setSwitched={setSwitched}
-				reset={reset}
-			/>
-			<Input
-				input={input}
-				setInput={setInput}
-				translate={translate}
-				setLoading={setLoading}
-				inputLanguage={inputLanguage}
-				inputConfig={inputConfig}
-				switched={switched}
-				reset={reset}
-				handleKeyDown={handleKeyDown}
-			/>
-			<Output response={response} inputLanguage={inputLanguage} loading={loading} />
-			<Button
-				className='translate-button'
-				label={inputConfig.translate}
-				icon="pi pi-check"
-				onClick={handleTranslate}
-			/>
-		</div>
-	);
-}
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      translate();
+    }
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
+  return (
+    <div className="TranslateText">
+      <Languages
+        setInputLanguage={setInputLanguage}
+        switched={switched}
+        setSwitched={setSwitched}
+        reset={reset}
+      />
+      <Input
+        input={input}
+        setInput={setInput}
+        translate={translate}
+        inputLanguage={inputLanguage}
+        inputConfig={inputConfig}
+        switched={switched}
+        reset={reset}
+        handleKeyDown={handleKeyDown}
+        isUploading={isUploading}
+        darkMode={darkMode}
+      />
+      <Output
+        response={response}
+        inputLanguage={inputLanguage}
+        loading={loading}
+        darkMode={darkMode}
+      />
+      <Image
+        src={dark}
+        alt="dark mode toggle"
+        className="toggle-dark"
+        onClick={toggleDarkMode}
+      />
+      <MediaHandler
+        handleFileChange={handleFileChange}
+        inputLanguage={inputLanguage}
+      />
+    </div>
+  );
+};
 
 export default TranslateText;

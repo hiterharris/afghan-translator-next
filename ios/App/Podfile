@@ -11,8 +11,13 @@ install! 'cocoapods', :disable_input_output_paths => true
 def capacitor_pods
   pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
   pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
+  pod 'CapacitorCamera', :path => '../../node_modules/@capacitor/camera'
   pod 'CapacitorClipboard', :path => '../../node_modules/@capacitor/clipboard'
+  pod 'CapacitorDevice', :path => '../../node_modules/@capacitor/device'
   pod 'CapacitorDialog', :path => '../../node_modules/@capacitor/dialog'
+  pod 'CapacitorPreferences', :path => '../../node_modules/@capacitor/preferences'
+  pod 'CapawesomeCapacitorFilePicker', :path => '../../node_modules/@capawesome/capacitor-file-picker'
+  pod 'CapacitorDocumentScanner', :path => '../../node_modules/capacitor-document-scanner'
 end
 
 target 'App' do

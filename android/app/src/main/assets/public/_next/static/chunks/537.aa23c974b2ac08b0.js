@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[537],{1537:function(e,n,t){t.r(n),t.d(n,{DocumentScannerWeb:function(){return s}});var c=t(9895);class s extends c.Uw{async scanDocument(e){throw console.log(e),this.unimplemented("Not implemented on web.")}}}}]);

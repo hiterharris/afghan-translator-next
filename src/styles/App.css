@@ -8,6 +8,16 @@
   justify-content: center;
 }
 
+.dark {
+  background-color: #1c1515;
+  color: white;
+}
+
+.input-textarea .dark {
+  background-color: #292323;
+  color: white;
+}
+
 .ContactForm {
   background-color: #504ED8;
   color: white;
@@ -109,7 +119,15 @@ textarea {
   margin-bottom: 10px;
 }
 
-
 .PrivacyPolicy strong {
   font-weight: bold;
+}
+
+.toggle-dark {
+  display: none;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: 32px;
+  right: 8px;
 }

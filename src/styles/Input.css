@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
 }
 
 .input-textarea {
@@ -22,10 +21,11 @@
 
 .input-textarea textarea {
     width: 80vw;
-    height: 24vh;
+    height: 28vh;
     border-radius: 16px;
     font-size: 16px;
     padding: 16px 16px 32px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .input-textarea textarea::placeholder {
@@ -33,7 +33,7 @@
 }
 
 .input-textarea label {
-    margin: 8px;
+    margin: 12px;
     font-size: 16px;
     color: grey;
 }
@@ -48,7 +48,7 @@
 }
 
 .translate-button {
-    height: 64px;
+    height: 54px;
     width: 175px;
     border: none;
     border-radius: 10px;
@@ -56,17 +56,20 @@
     color: white;
     font-weight: 500;
     font-size: 18px;
-    padding: 12px;
     text-align: center;
 }
 
 .input-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    align-items: flex-end
 }
 
 .reset {
     visibility: hidden;
+    /* position: relative; */
+    /* right: 4px; */
+    /* bottom: 48px; */
     height: 28px;
     width: 28px;
     margin: 8px;
@@ -82,4 +85,5 @@
     margin: 8px 12px;
     left: 0;
     bottom: 0;
+    visibility: hidden;
 }
